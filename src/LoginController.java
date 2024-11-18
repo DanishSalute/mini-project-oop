@@ -256,11 +256,17 @@ public class LoginController implements Initializable {
                     infoIconP_L.setVisible(false); // Hide the prompt icon initially
                     infoTextP_L.setVisible(false); // Hide the prompt text initially
 
+                    infoIconU_L.setVisible(false);
+                    infoTextU_L.setVisible(false);
+
                     System.out.println("User successfully logged in");
                 } else {
                     infoIconP_L.setVisible(true);
                     infoTextP_L.setVisible(true);
                     infoTextP_L.setText("Incorrect password");
+
+                    infoIconU_L.setVisible(false);
+                    infoTextU_L.setVisible(false);
 
                     // Start the fade transitions
                     fadeTransitionP_L.play();
@@ -271,6 +277,8 @@ public class LoginController implements Initializable {
                 infoIconU_L.setVisible(true);
                 infoTextU_L.setVisible(true);
                 infoTextU_L.setText("Username not found");
+                infoIconP_L.setVisible(false);
+                infoTextP_L.setVisible(false);
 
                 // Start the fade transitions
                 fadeTransitionU_L.play();
@@ -357,6 +365,9 @@ public class LoginController implements Initializable {
                 infoTextP_R.setVisible(true);
                 infoTextP_R.setText("All fields must be filled in");
 
+                infoIconU_R.setVisible(false);
+                infoTextU_R.setVisible(false);
+
                 // Start the fade transitions
                 fadeTransitionP_R.play();
                 fadeTransitionTextP_R.play();
@@ -371,6 +382,9 @@ public class LoginController implements Initializable {
                 infoIconP_L.setVisible(false); // Hide the prompt icon initially
                 infoTextP_L.setVisible(false); // Hide the prompt text initially
 
+                infoIconU_R.setVisible(false);
+                infoTextU_R.setVisible(false);
+
                 // Add username and password
                 registeredUsername.add(newUsername);
                 registeredPassword.add(newPassword);
@@ -379,6 +393,9 @@ public class LoginController implements Initializable {
                 infoIconU_R.setVisible(true);
                 infoTextU_R.setVisible(true);
                 infoTextU_R.setText("Username already exists");
+
+                infoIconP_R.setVisible(false);
+                infoTextP_R.setVisible(false);
 
                 // Start the fade transitions
                 fadeTransitionU_R.play();
