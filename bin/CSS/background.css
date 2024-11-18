@@ -1,0 +1,5 @@
+.loginDoodles
+{
+    -fx-background-image : url("/Images/LoginPageBackground.jpg");
+    -fx-background-size : 480px 480px;
+}
