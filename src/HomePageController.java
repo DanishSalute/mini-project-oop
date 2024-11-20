@@ -57,14 +57,14 @@ public class HomePageController implements Initializable {
         addHoverAnimationBlack(bbbImage, bbbLabel);
 
         //All the circles animation
-        circleAnimation(bbbImage);
-        circleAnimation(rbsImage);
-        circleAnimation(richeeseImage);
-        circleAnimation(nandosImage);
-        circleAnimation(gemasImage);
-        circleAnimation(kfcImage);
-        circleAnimation(kfryImage);
-        circleAnimation(gepukImage);
+        circleAnimation(bbbImage, bbbLabel);
+        circleAnimation(rbsImage, rbsLabel);
+        circleAnimation(richeeseImage, richeeseLabel);
+        circleAnimation(nandosImage, nandosLabel);
+        circleAnimation(gemasImage, gemasLabel);
+        circleAnimation(kfcImage, kfcLabel);
+        circleAnimation(kfryImage, kfryLabel);
+        circleAnimation(gepukImage, gepukLabel);
         
     }
 
@@ -77,40 +77,63 @@ public class HomePageController implements Initializable {
     //Setup for stroke and scale animation
 
     @SuppressWarnings("unused")
-    private void circleAnimation(Circle circle) {
-        // Stroke transition for hover
+    private void circleAnimation(Circle circle, Label label) {
+        // Stroke transition for hover (Circle)
         StrokeTransition strokeTransitionStart = new StrokeTransition(Duration.millis(500), circle);
         strokeTransitionStart.setInterpolator(Interpolator.EASE_IN);
         strokeTransitionStart.setToValue(Color.BLACK);
-    
-        // Stroke transition for mouse leave
+
         StrokeTransition strokeTransitionEnd = new StrokeTransition(Duration.millis(500), circle);
         strokeTransitionEnd.setInterpolator(Interpolator.EASE_OUT);
         strokeTransitionEnd.setToValue(Color.web("#636363"));
-    
-        // Scale transition for hover
+
+        // Scale transition for hover (Circle)
         ScaleTransition scaleTransitionStart = new ScaleTransition(Duration.millis(500), circle);
         scaleTransitionStart.setInterpolator(Interpolator.EASE_IN);
         scaleTransitionStart.setToX(1.1);
         scaleTransitionStart.setToY(1.1);
-    
-        // Scale transition for mouse leave
+
         ScaleTransition scaleTransitionEnd = new ScaleTransition(Duration.millis(500), circle);
         scaleTransitionEnd.setInterpolator(Interpolator.EASE_OUT);
         scaleTransitionEnd.setToX(1.0);
         scaleTransitionEnd.setToY(1.0);
-    
+
+        // Scale transition for hover (Label)
+        ScaleTransition scaleTransitionStartLabel = new ScaleTransition(Duration.millis(500), label);
+        scaleTransitionStartLabel.setInterpolator(Interpolator.EASE_IN);
+        scaleTransitionStartLabel.setToX(1.1);
+        scaleTransitionStartLabel.setToY(1.1);
+
+        ScaleTransition scaleTransitionEndLabel = new ScaleTransition(Duration.millis(500), label);
+        scaleTransitionEndLabel.setInterpolator(Interpolator.EASE_OUT);
+        scaleTransitionEndLabel.setToX(1.0);
+        scaleTransitionEndLabel.setToY(1.0);
+
         // Add hover listener
         circle.hoverProperty().addListener((observable, oldValue, isHovered) -> {
             if (isHovered) {
                 scaleTransitionStart.play();
                 strokeTransitionStart.play();
+                scaleTransitionStartLabel.play();
             } else {
                 scaleTransitionEnd.play();
                 strokeTransitionEnd.play();
+                scaleTransitionEndLabel.play();
+            }
+        });
+        label.hoverProperty().addListener((observable, oldValue, isHovered) -> {
+            if (isHovered) {
+                scaleTransitionStart.play();
+                strokeTransitionStart.play();
+                scaleTransitionStartLabel.play();
+            } else {
+                scaleTransitionEnd.play();
+                strokeTransitionEnd.play();
+                scaleTransitionEndLabel.play();
             }
         });
     }
+
     
 
 
@@ -129,8 +152,6 @@ public class HomePageController implements Initializable {
                 }
             } else {
                 label.getStyleClass().remove("restaurantLabelWhite");
-
-                
             }
         });
 
@@ -140,13 +161,9 @@ public class HomePageController implements Initializable {
             if (isHovered) {
                 if (!label.getStyleClass().contains("restaurantLabelWhite")) {
                     label.getStyleClass().add("restaurantLabelWhite");
-
-                    
                 }
             } else {
                 label.getStyleClass().remove("restaurantLabelWhite");
-
-                
             }
         });
     }
@@ -160,13 +177,9 @@ public class HomePageController implements Initializable {
             if (isHovered) {
                 if (!label.getStyleClass().contains("restaurantLabelBlack")) {
                     label.getStyleClass().add("restaurantLabelBlack");
-
-                   
-                }
-            } else {
-                label.getStyleClass().remove("restaurantLabelBlack");
-
-                
+                    }
+                } else {
+                    label.getStyleClass().remove("restaurantLabelBlack");
             }
         });
 
@@ -176,11 +189,9 @@ public class HomePageController implements Initializable {
             if (isHovered) {
                 if (!label.getStyleClass().contains("restaurantLabelBlack")) {
                     label.getStyleClass().add("restaurantLabelBlack");
-
                 }
             } else {
                 label.getStyleClass().remove("restaurantLabelBlack");
-
             }
         });
     }
@@ -194,11 +205,9 @@ public class HomePageController implements Initializable {
             if (isHovered) {
                 if (!label.getStyleClass().contains("restaurantLabelOrange")) {
                     label.getStyleClass().add("restaurantLabelOrange");
-
                 }
             } else {
                 label.getStyleClass().remove("restaurantLabelOrange");
-
             }
         });
 
@@ -208,11 +217,9 @@ public class HomePageController implements Initializable {
             if (isHovered) {
                 if (!label.getStyleClass().contains("restaurantLabelOrange")) {
                     label.getStyleClass().add("restaurantLabelOrange");
-
                 }
             } else {
                 label.getStyleClass().remove("restaurantLabelOrange");
-
             }
         });
     }

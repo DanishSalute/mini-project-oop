@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+   <right>
+      <Pane layoutX="1300.0" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="302.0" text="CART" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="40.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+               </effect>
+            </Label>
+            <Button layoutX="112.0" layoutY="402.0" mnemonicParsing="false" text="Place Order" />
+         </children></Pane>
+   </right>
+   <top>
+      <Pane prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="168.0" prefHeight="50.0" prefWidth="422.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="50.0" prefWidth="178.0" text="LOCKED UP">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Label layoutX="65.0" layoutY="10.0" prefHeight="50.0" prefWidth="178.0" text="MUNCHIES" textFill="#ff7653">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                     </effect>
+                  </Label>
+               </children>
+            </HBox>
+            <Button layoutX="25.0" layoutY="13.0" mnemonicParsing="false" text="Back" />
+         </children></Pane>
+   </top>
+   <left>
+      <Pane prefHeight="450.0" prefWidth="362.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="20.0" layoutY="33.0" text="Delivery address:" />
+            <TextArea layoutX="14.0" layoutY="56.0" prefHeight="150.0" prefWidth="296.0" />
+            <ComboBox layoutX="20.0" layoutY="277.0" prefWidth="150.0" />
+            <Label layoutX="20.0" layoutY="250.0" text="Delivery options:" />
+            <Button layoutX="266.0" layoutY="211.0" mnemonicParsing="false" text="Save" />
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="450.0" prefWidth="348.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton layoutX="39.0" layoutY="72.0" mnemonicParsing="false" text="Debit card" />
+            <RadioButton layoutX="39.0" layoutY="100.0" mnemonicParsing="false" text="Cash" />
+            <Label layoutX="39.0" layoutY="31.0" text="Payment method:" />
+            <TextArea layoutX="21.0" layoutY="204.0" prefHeight="150.0" prefWidth="296.0" />
+            <Label layoutX="21.0" layoutY="176.0" text="Additional request:" />
+            <Button layoutX="263.0" layoutY="358.0" mnemonicParsing="false" text="Save" />
+            <TextField layoutX="133.0" layoutY="68.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
