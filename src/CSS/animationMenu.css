@@ -1,5 +1,3 @@
-
-
 .restaurantImage
 {
     -fx-stroke-color : #636363;
@@ -40,3 +38,4 @@
     transition : 
                 -fx-effect 0.5s ease-in;
 }
+

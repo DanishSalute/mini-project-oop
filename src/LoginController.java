@@ -7,7 +7,11 @@ import javafx.animation.TranslateTransition;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -17,25 +21,33 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    // 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+
     // Variables for buttons
     @FXML
-    private Button loginButton, registerButton, accountRegisterButton;
+    private Button loginButton, registerButton, accountRegisterButton, buttonConfirmLogin_YES, buttonConfirmLogin_NO;
     @FXML
     private AnchorPane loginBackgroundPage, loginForegroundSlider;
     @FXML
-    private Pane loginPane, registerPane;
+    private Pane loginPane, registerPane, ConfirmLogin_PANE;
     @FXML
     private PasswordField loginPasswordField, registerPasswordField;
     @FXML
-    private Label loginPasswordPrompt, loginUsernamePrompt, registerUsernamePrompt, registerPasswordPrompt, registerAccountLabel, infoTextU_L, infoTextP_L, infoTextU_R, infoTextP_R;
+    private Label loginPasswordPrompt, loginUsernamePrompt, registerUsernamePrompt, registerPasswordPrompt, registerAccountLabel, infoTextU_L, infoTextP_L, infoTextU_R, infoTextP_R, displayUsername;
     @FXML
     private TextField loginUsernameField, registerUsernameField, registerPasswordVisible, loginPasswordVisible;
     @FXML
@@ -47,7 +59,7 @@ public class LoginController implements Initializable {
     // User Data
     public ArrayList<String> registeredUsername = new ArrayList<>();
     public ArrayList<String> registeredPassword = new ArrayList<>();
-
+    int indexOfCurrentUser;
 
 //Animation     
 
@@ -56,6 +68,12 @@ public class LoginController implements Initializable {
     private boolean isSliderMoved = false;
     
 
+//Labels
+
+
+    // Making labels appear above the textfield when clicked
+
+    @SuppressWarnings("unused")
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Hide all prompts by default
@@ -63,7 +81,51 @@ public class LoginController implements Initializable {
         loginPasswordPrompt.setVisible(false);
         registerUsernamePrompt.setVisible(false);
         registerPasswordPrompt.setVisible(false);
+
+        // Add focus listeners to show/hide prompts based on which field is focused
+        loginUsernameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            loginUsernamePrompt.setVisible(newValue);
+            loginPasswordPrompt.setVisible(false);
+            registerUsernamePrompt.setVisible(false);
+            registerPasswordPrompt.setVisible(false);
+        });
+
+        loginPasswordField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            loginPasswordPrompt.setVisible(newValue);
+            loginUsernamePrompt.setVisible(false);
+            registerUsernamePrompt.setVisible(false);
+            registerPasswordPrompt.setVisible(false);
+        });
+
+        loginPasswordVisible.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            loginPasswordPrompt.setVisible(newValue);
+            loginUsernamePrompt.setVisible(false);
+            registerUsernamePrompt.setVisible(false);
+            registerPasswordPrompt.setVisible(false);
+        });
+
+        registerUsernameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            registerUsernamePrompt.setVisible(newValue);
+            loginUsernamePrompt.setVisible(false);
+            loginPasswordPrompt.setVisible(false);
+            registerPasswordPrompt.setVisible(false);
+        });
+
+        registerPasswordField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            registerPasswordPrompt.setVisible(newValue);
+            loginUsernamePrompt.setVisible(false);
+            loginPasswordPrompt.setVisible(false);
+            registerUsernamePrompt.setVisible(false);
+        });
+
+        registerPasswordVisible.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            registerPasswordPrompt.setVisible(newValue);
+            loginUsernamePrompt.setVisible(false);
+            loginPasswordPrompt.setVisible(false);
+            registerUsernamePrompt.setVisible(false);
+        });
     }
+
     
     //Slide animation    
     @SuppressWarnings("unused")
@@ -138,43 +200,6 @@ public class LoginController implements Initializable {
     }
 
 
-//Labels
-
-
-    // Making labels appear above the textfield when clicked
-    @FXML
-    void loginUsername_Clicked(MouseEvent event) {
-        loginUsernamePrompt.setVisible(true);
-        loginPasswordPrompt.setVisible(false);
-        registerPasswordPrompt.setVisible(false);
-        registerUsernamePrompt.setVisible(false);
-    }
-
-    @FXML
-    void loginPassword_Clicked(MouseEvent event) {
-        loginUsernamePrompt.setVisible(false);
-        loginPasswordPrompt.setVisible(true);
-        registerPasswordPrompt.setVisible(false);
-        registerUsernamePrompt.setVisible(false);
-    }
-
-    @FXML
-    void registerUsername_Clicked(MouseEvent event) {
-        loginUsernamePrompt.setVisible(false);
-        loginPasswordPrompt.setVisible(false);
-        registerPasswordPrompt.setVisible(false);
-        registerUsernamePrompt.setVisible(true);
-    }
-
-    @FXML
-    void registerPassword_Clicked(MouseEvent event) {
-        loginUsernamePrompt.setVisible(false);
-        loginPasswordPrompt.setVisible(false);
-        registerPasswordPrompt.setVisible(true);
-        registerUsernamePrompt.setVisible(false);
-    }
-
-
 //Login function
 
 
@@ -190,7 +215,7 @@ public class LoginController implements Initializable {
         // If the fade transitions are not created, create them only once
         if (fadeTransitionP_L == null) {
             fadeTransitionP_L = new FadeTransition(Duration.seconds(5), infoIconP_L);
-            fadeTransitionP_L.setFromValue(1.0);
+            fadeTransitionP_L.setFromValue(0.7);
             fadeTransitionP_L.setToValue(0.0);
             fadeTransitionP_L.setCycleCount(1);
             fadeTransitionP_L.setDelay(Duration.seconds(2));
@@ -204,7 +229,7 @@ public class LoginController implements Initializable {
         }
         if (fadeTransitionU_L == null) {
             fadeTransitionU_L = new FadeTransition(Duration.seconds(5), infoIconU_L);
-            fadeTransitionU_L.setFromValue(1.0);
+            fadeTransitionU_L.setFromValue(0.7);
             fadeTransitionU_L.setToValue(0.0);
             fadeTransitionU_L.setCycleCount(1);
             fadeTransitionU_L.setDelay(Duration.seconds(2));
@@ -251,6 +276,12 @@ public class LoginController implements Initializable {
 
                 // Check if the password matches the stored password
                 if (registeredPassword.get(index).equals(password)) {
+
+                    // Save who is logged in
+                    indexOfCurrentUser = index;
+                    String currentUsername = registeredUsername.get(indexOfCurrentUser);
+                    
+
                     infoIconP_L.setOpacity(0.7); // Ensure the icon is visible
                     infoTextP_L.setOpacity(1.0); // Ensure the text is visible
                     infoIconP_L.setVisible(false); // Hide the prompt icon initially
@@ -259,8 +290,15 @@ public class LoginController implements Initializable {
                     infoIconU_L.setVisible(false);
                     infoTextU_L.setVisible(false);
 
-                    System.out.println("User successfully logged in");
+                    // Login confirmation prompt (Pane)
+
+                    loginPane.setVisible(false);
+                    displayUsername.setText(currentUsername);
+                    ConfirmLogin_PANE.setVisible(true);
                 } else {
+
+                    // Prompting user what's wrong (Animation)
+
                     infoIconP_L.setVisible(true);
                     infoTextP_L.setVisible(true);
                     infoTextP_L.setText("Incorrect password");
@@ -268,12 +306,17 @@ public class LoginController implements Initializable {
                     infoIconU_L.setVisible(false);
                     infoTextU_L.setVisible(false);
 
+                    // Emptying fields to ensure smooth operation for user
+                    loginPasswordField.setText(null);
+                    loginPasswordVisible.setText(null);
+
                     // Start the fade transitions
                     fadeTransitionP_L.play();
                     fadeTransitionTextP_L.play();
                 }
             } else {
                 // Display username not found if the entered username is not in the registered list
+
                 infoIconU_L.setVisible(true);
                 infoTextU_L.setVisible(true);
                 infoTextU_L.setText("Username not found");
@@ -283,13 +326,21 @@ public class LoginController implements Initializable {
                 // Start the fade transitions
                 fadeTransitionU_L.play();
                 fadeTransitionTextU_L.play();
+
+                // Emptying fields to ensure smooth operation for user
+
+                loginUsernameField.setText(null);
+                loginPasswordField.setText(null);
+                loginPasswordVisible.setText(null);
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             infoIconP_L.setVisible(true);
             infoTextP_L.setVisible(true);
-            infoTextP_L.setText("An unexpected error occurred: " + e.getMessage());
+            infoTextP_L.setText("An unexpected error occurred");
+
+            System.out.println(e.getMessage());
 
             // Start the fade transitions
             fadeTransitionP_L.play();
@@ -299,10 +350,7 @@ public class LoginController implements Initializable {
     }
 
 
-
 //Register function
-
-
 
     // Fade transition for infoicon and text (Register)
     private FadeTransition fadeTransitionP_R;
@@ -316,7 +364,7 @@ public class LoginController implements Initializable {
         // If the fade transitions are not created, create them only once
         if (fadeTransitionP_R == null) {
             fadeTransitionP_R = new FadeTransition(Duration.seconds(5), infoIconP_R);
-            fadeTransitionP_R.setFromValue(1.0);
+            fadeTransitionP_R.setFromValue(0.7);
             fadeTransitionP_R.setToValue(0.0);
             fadeTransitionP_R.setCycleCount(1);
             fadeTransitionP_R.setDelay(Duration.seconds(2));
@@ -330,7 +378,7 @@ public class LoginController implements Initializable {
         }
         if (fadeTransitionU_R == null) {
             fadeTransitionU_R = new FadeTransition(Duration.seconds(5), infoIconU_R);
-            fadeTransitionU_R.setFromValue(1.0);
+            fadeTransitionU_R.setFromValue(0.7);
             fadeTransitionU_R.setToValue(0.0);
             fadeTransitionU_R.setCycleCount(1);
             fadeTransitionU_R.setDelay(Duration.seconds(2));
@@ -359,6 +407,9 @@ public class LoginController implements Initializable {
             String newUsername = registerUsernameField.getText();
             String newPassword = registerPasswordField.isVisible() ? registerPasswordField.getText() : registerPasswordVisible.getText();
 
+            int usernameFieldLength = registerUsernameField.getText().length();
+            int passwordFieldLength = registerPasswordField.isVisible() ? registerPasswordField.getText().length() : registerPasswordVisible.getText().length();
+
             // Check if fields are empty
             if (newUsername.isEmpty() || newPassword.isEmpty()) {
                 infoIconP_R.setVisible(true);
@@ -373,44 +424,85 @@ public class LoginController implements Initializable {
                 fadeTransitionTextP_R.play();
                 return; // Exit the method to prevent further processing
             }
-
-            // Check if the username already exists
-            if (!registeredUsername.contains(newUsername)) {
-
-                infoIconP_L.setOpacity(0.7); // Ensure the icon is visible
-                infoTextP_L.setOpacity(1.0); // Ensure the text is visible
-                infoIconP_L.setVisible(false); // Hide the prompt icon initially
-                infoTextP_L.setVisible(false); // Hide the prompt text initially
-
-                infoIconU_R.setVisible(false);
-                infoTextU_R.setVisible(false);
-
-                // Add username and password
-                registeredUsername.add(newUsername);
-                registeredPassword.add(newPassword);
-                System.out.println("User successfully registered");
-            } else {
+            
+            // Check username length
+            if (usernameFieldLength <= 8) {
                 infoIconU_R.setVisible(true);
                 infoTextU_R.setVisible(true);
-                infoTextU_R.setText("Username already exists");
-
+                infoTextU_R.setText("Username must be more than 8 characters");
+            
                 infoIconP_R.setVisible(false);
                 infoTextP_R.setVisible(false);
-
+            
                 // Start the fade transitions
                 fadeTransitionU_R.play();
                 fadeTransitionTextU_R.play();
+                return;
             }
+            
+            // Check password length
+            if (passwordFieldLength <= 8) {
+                infoIconP_R.setVisible(true);
+                infoTextP_R.setVisible(true);
+                infoTextP_R.setText("Password must be more than 8 characters");
+            
+                infoIconU_R.setVisible(false);
+                infoTextU_R.setVisible(false);
+            
+                // Start the fade transitions
+                fadeTransitionP_R.play();
+                fadeTransitionTextP_R.play();
+                return;
+            }
+            
+            // Check if username already exists
+            if (registeredUsername.contains(newUsername)) {
+                infoIconU_R.setVisible(true);
+                infoTextU_R.setVisible(true);
+                infoTextU_R.setText("Username already exists");
+            
+                infoIconP_R.setVisible(false);
+                infoTextP_R.setVisible(false);
+            
+                // Start the fade transitions
+                fadeTransitionU_R.play();
+                fadeTransitionTextU_R.play();
+            
+                // Clear input fields for re-entry
+                registerUsernameField.setText(null);
+                registerPasswordField.setText(null);
+                registerPasswordVisible.setText(null);
+                return;
+            }
+
+            //Success
+            if (!registeredUsername.contains(newUsername) && usernameFieldLength > 8 && passwordFieldLength > 8) {
+                System.out.println("User successfully registered");
+            
+                registeredUsername.add(newUsername);
+                registeredPassword.add(newPassword);
+            
+                // Clear the fields or provide feedback to the user if needed
+                registerUsernameField.setText(null);
+                registerPasswordField.setText(null);
+                registerPasswordVisible.setText(null);
+
+                // Reset UI
+
+                infoIconP_R.setVisible(false);
+                infoTextP_R.setVisible(false);
+                infoIconU_R.setVisible(false);
+                infoTextU_R.setVisible(false);
+
+                fadeTransitionU_R.stop();
+                fadeTransitionP_R.stop();
+                fadeTransitionTextP_R.stop();
+                fadeTransitionTextU_R.stop();
+
+            }
+            
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-        } catch (Exception e) {
-            infoIconP_R.setVisible(true);
-            infoTextP_R.setVisible(true);
-            infoTextP_R.setText("An unexpected error occurred: " + e.getMessage());
-
-            // Start the fade transitions
-            fadeTransitionP_R.play();
-            fadeTransitionTextP_R.play();
         }
     }
 
@@ -505,5 +597,78 @@ public class LoginController implements Initializable {
 
         // Ensure password field content is synchronized
         registerPasswordField.setText(registerPasswordVisible.getText());
+    }
+
+// If the user clicked one of the buttons during login confirmation
+
+    // When user clicked no
+
+    @FXML
+    void buttonConfirmLogin_NO_Clicked(ActionEvent event) {
+        ConfirmLogin_PANE.setVisible(false);
+        loginPane.setVisible(true);
+
+        loginUsernameField.setText(null);
+        loginPasswordField.setText(null);
+        loginPasswordVisible.setText(null);
+    }
+
+    // When user clicked yes
+
+    @FXML
+    void buttonConfirmLogin_YES_Clicked(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("/FXML/HomePage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/CSS/animationMenu.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+
+        System.out.println("User successfully login");
+    }
+
+
+
+// Tweak for better user interaction
+// When hitting enter user navigate to the next field without needing to move the cursor and click which saves a lot of time
+
+    @FXML
+    void loginUsername_ENTER(ActionEvent event) {
+        if (loginPasswordField.isVisible()) {
+            loginPasswordField.requestFocus();
+        }
+        else if (loginPasswordVisible.isVisible()) {
+            loginPasswordVisible.requestFocus();
+        }
+    }
+
+    @FXML
+    void loginPasswordField_ENTER(ActionEvent event){
+        loginButton_Clicked(event);
+    }
+
+    @FXML
+    void loginPasswordVisible_ENTER(ActionEvent event){
+        loginButton_Clicked(event);
+    }
+
+    @FXML
+    void registerUsername_ENTER(ActionEvent event){
+        if (registerPasswordField.isVisible()) {
+            registerPasswordField.requestFocus();
+        }
+        else if (registerPasswordVisible.isVisible()) {
+            registerPasswordVisible.requestFocus();
+        }
+    }
+
+    @FXML
+    void registerPasswordField_ENTER(ActionEvent event){
+        registerButton_Clicked(event);
+    }
+
+    @FXML
+    void registerPasswordVisible_ENTER(ActionEvent event){
+        registerButton_Clicked(event);
     }
 }

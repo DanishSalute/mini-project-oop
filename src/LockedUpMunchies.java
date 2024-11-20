@@ -8,9 +8,9 @@ public class LockedUpMunchies extends Application {
 
     @Override
     public void start(Stage loginStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/LoginOrRegisterPage.fxml"));
         Scene loginPage = new Scene(root);
-        loginPage.getStylesheets().add(getClass().getResource("/CSS/animationMenu.css").toExternalForm());
+        //loginPage.getStylesheets().add(getClass().getResource("/CSS/animationMenu.css").toExternalForm());
         loginStage.setScene(loginPage);
         loginStage.setTitle("Locked Up Munchies");
         loginStage.show();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -7,6 +8,9 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,14 +19,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginBackgroundPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane fx:id="loginBackgroundPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
       <ImageView fx:id="doodleBackground" fitHeight="500.0" fitWidth="1500.0" layoutX="-500.0" pickOnBounds="true">
          <image>
             <Image url="@../Images/cropped-LoginPageBackground.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="loginPane" layoutX="600.0" layoutY="150.0" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #FF7653;">
+      <Pane fx:id="loginPane" layoutX="608.0" layoutY="100.0" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #FF7653;">
          <children>
             <Label alignment="CENTER" layoutY="19.0" prefHeight="19.0" prefWidth="300.0" text="LOGIN" textAlignment="CENTER" textFill="#ff7653">
                <font>
@@ -36,17 +40,17 @@
                   </DropShadow>
                </effect>
             </Label>
-            <TextField fx:id="loginUsernameField" layoutX="50.0" layoutY="100.0" onMouseClicked="#loginUsername_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
+            <TextField fx:id="loginUsernameField" layoutX="50.0" layoutY="100.0" onAction="#loginUsername_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="loginPasswordField" layoutX="50.0" layoutY="200.0" onMouseClicked="#loginPassword_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
+            <PasswordField fx:id="loginPasswordField" layoutX="50.0" layoutY="200.0" onAction="#loginPasswordField_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="loginPasswordVisible" disable="true" layoutX="50.0" layoutY="200.0" onMouseClicked="#loginPassword_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css" visible="false">
+            <TextField fx:id="loginPasswordVisible" disable="true" layoutX="50.0" layoutY="200.0" onAction="#loginPasswordVisible_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css" visible="false">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
@@ -109,7 +113,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="registerPane" layoutX="100.0" layoutY="150.0" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #FF7653;">
+      <Pane fx:id="registerPane" layoutX="100.0" layoutY="100.0" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #FF7653;">
          <children>
             <Label alignment="CENTER" layoutY="19.0" prefHeight="19.0" prefWidth="300.0" text="REGISTER" textAlignment="CENTER" textFill="#ff7653">
                <font>
@@ -123,17 +127,17 @@
                   </DropShadow>
                </effect>
             </Label>
-            <TextField fx:id="registerUsernameField" layoutX="50.0" layoutY="100.0" onMouseClicked="#registerUsername_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
+            <TextField fx:id="registerUsernameField" layoutX="50.0" layoutY="100.0" onAction="#registerUsername_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Username" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="registerPasswordField" layoutX="50.0" layoutY="200.0" onMouseClicked="#registerPassword_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
+            <PasswordField fx:id="registerPasswordField" layoutX="50.0" layoutY="200.0" onAction="#registerPasswordField_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="registerPasswordVisible" disable="true" layoutX="50.0" layoutY="200.0" onMouseClicked="#registerPassword_Clicked" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css" visible="false">
+            <TextField fx:id="registerPasswordVisible" disable="true" layoutX="50.0" layoutY="200.0" onAction="#registerPasswordVisible_ENTER" prefHeight="25.0" prefWidth="199.0" promptText="Password" style="-fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent; -fx-alignment: center-left;" styleClass="textField" stylesheets="@../CSS/buttonAnimation.css" visible="false">
                <font>
                   <Font name="Gill Sans MT" size="12.0" />
                </font>
@@ -223,9 +227,98 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="125.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/LOGO-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="73.0" layoutY="29.0" prefHeight="50.0" prefWidth="355.0" style="-fx-background-color: #212121; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="2.0" prefHeight="50.0" prefWidth="178.0" text="LOCKED UP" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow height="1.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="179.0" prefHeight="50.0" prefWidth="178.0" text="MUNCHIES" textFill="#ff7653">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                     </effect>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
-      <ImageView fx:id="userPFP" fitHeight="190.0" fitWidth="190.0" layoutX="655.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane fx:id="ConfirmLogin_PANE" layoutX="608.0" layoutY="87.0" prefHeight="295.0" prefWidth="299.0" style="-fx-background-color: #212121; -fx-background-radius: 25; -fx-border-radius: 25; -fx-border-color: #FF7653;" visible="false">
+         <children>
+            <ImageView fx:id="userPFP" fitHeight="190.0" fitWidth="190.0" layoutX="52.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/userDefaultPicture.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutY="182.0" prefHeight="17.0" prefWidth="299.0" text="Is this your account?" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayUsername" alignment="CENTER" layoutY="210.0" prefHeight="17.0" prefWidth="299.0" text="Username" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonConfirmLogin_YES" layoutX="104.0" layoutY="245.0" mnemonicParsing="false" onAction="#buttonConfirmLogin_YES_Clicked" prefHeight="25.0" prefWidth="38.0" style="-fx-background-color: #FF7653;" text="YES">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="buttonConfirmLogin_NO" layoutX="159.0" layoutY="245.0" mnemonicParsing="false" onAction="#buttonConfirmLogin_NO_Clicked" style="-fx-background-color: White;" text="NO">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+               <input>
+                  <Lighting diffuseConstant="2.0" surfaceScale="4.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="233.26" />
+                     </light>
+                  </Lighting>
+               </input>
+            </DropShadow>
+         </effect>
+      </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="5.0">
          <effect>
             <DropShadow height="17.44" radius="18.86" width="60.0">

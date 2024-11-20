@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckoutController">
    <right>
       <Pane layoutX="1300.0" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
          <children>
@@ -30,16 +36,40 @@
                   <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
                </effect>
             </Label>
-            <Button layoutX="112.0" layoutY="402.0" mnemonicParsing="false" text="Place Order" />
-         </children></Pane>
+         </children>
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.26" specularExponent="12.3" surfaceScale="4.08">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="181.65" />
+               </light>
+            </Lighting>
+         </effect></Pane>
    </right>
    <top>
-      <Pane prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="168.0" prefHeight="50.0" prefWidth="422.0">
+            <HBox prefHeight="50.0" prefWidth="475.0">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label prefHeight="50.0" prefWidth="178.0" text="LOCKED UP">
+                  <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="50.0" prefWidth="50.0" stylesheets="@../CSS/Checkout.css" text="&lt;--" textAlignment="CENTER">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fitHeight="38.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/LOGO-removebg-preview.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="6.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="50.0" prefWidth="178.0" text="LOCKED UP" textFill="WHITE">
                      <font>
                         <Font name="Gill Sans Ultra Bold" size="24.0" />
                      </font>
@@ -70,30 +100,83 @@
                   </Label>
                </children>
             </HBox>
-            <Button layoutX="25.0" layoutY="13.0" mnemonicParsing="false" text="Back" />
-         </children></Pane>
+            <HBox layoutX="700.0" prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="303.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../Images/userDefaultPicture.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.28" specularExponent="12.9" surfaceScale="4.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="124.17" elevation="35.0" />
+               </light>
+            </Lighting>
+         </effect></Pane>
    </top>
    <left>
       <Pane prefHeight="450.0" prefWidth="362.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="20.0" layoutY="33.0" text="Delivery address:" />
-            <TextArea layoutX="14.0" layoutY="56.0" prefHeight="150.0" prefWidth="296.0" />
-            <ComboBox layoutX="20.0" layoutY="277.0" prefWidth="150.0" />
+            <TextArea fx:id="deliveryAddress" layoutX="14.0" layoutY="56.0" prefHeight="150.0" prefWidth="296.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextArea>
+            <ComboBox fx:id="deliveryOptions" layoutX="20.0" layoutY="277.0" prefWidth="150.0" visibleRowCount="3" />
             <Label layoutX="20.0" layoutY="250.0" text="Delivery options:" />
-            <Button layoutX="266.0" layoutY="211.0" mnemonicParsing="false" text="Save" />
+            <Button fx:id="saveAddress" layoutX="266.0" layoutY="211.0" mnemonicParsing="false" text="Save">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
    </left>
    <center>
       <Pane prefHeight="450.0" prefWidth="348.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
          <children>
-            <RadioButton layoutX="39.0" layoutY="72.0" mnemonicParsing="false" text="Debit card" />
-            <RadioButton layoutX="39.0" layoutY="100.0" mnemonicParsing="false" text="Cash" />
+            <RadioButton fx:id="debitCardOption" layoutX="39.0" layoutY="72.0" mnemonicParsing="false" text="Debit card">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <toggleGroup>
+                  <ToggleGroup fx:id="paymentOptions" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="cashOption" layoutX="39.0" layoutY="100.0" mnemonicParsing="false" text="Cash" toggleGroup="$paymentOptions">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></RadioButton>
             <Label layoutX="39.0" layoutY="31.0" text="Payment method:" />
-            <TextArea layoutX="21.0" layoutY="204.0" prefHeight="150.0" prefWidth="296.0" />
+            <TextArea fx:id="additionalRequest" layoutX="21.0" layoutY="204.0" prefHeight="150.0" prefWidth="296.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextArea>
             <Label layoutX="21.0" layoutY="176.0" text="Additional request:" />
-            <Button layoutX="263.0" layoutY="358.0" mnemonicParsing="false" text="Save" />
-            <TextField layoutX="133.0" layoutY="68.0" />
+            <TextField fx:id="debitCardField" layoutX="133.0" layoutY="68.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <Button fx:id="placeOrder" layoutX="132.0" layoutY="407.0" mnemonicParsing="false" text="Place Order">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
    </center>
