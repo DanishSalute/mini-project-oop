@@ -1,0 +1,74 @@
+
+.restaurantLabelBlack
+{
+    -fx-scale-x : 1.0;
+    -fx-scale-y : 1.0;
+    -fx-effect : dropshadow(three-pass-box, #FFFFFF, 0.0, 0.0, 0, 0);
+
+}
+
+.restaurantLabelOrange
+{
+    -fx-scale-x : 1.0;
+    -fx-scale-y : 1.0;
+    -fx-effect : dropshadow(three-pass-box, #ffffff, 0.0, 0.0, 0, 0);
+
+
+}
+
+.restaurantLabelWhite
+{
+    -fx-scale-x : 1.0;
+    -fx-scale-y : 1.0;
+    -fx-effect : dropshadow(three-pass-box, #000000, 0.0, 0.0, 0, 0);
+
+}
+
+.restaurantImage
+{
+    -fx-stroke-color : #636363;
+    -fx-scale-x : 1.0;
+    -fx-scale-y : 1.0;
+}
+
+.restaurantImage
+{
+    -fx-stroke-color : #212121;
+    -fx-scale-x : 1.1;
+    -fx-scale-y : 1.1;
+}
+
+.restaurantLabelBlack
+{
+    -fx-scale-x : 1.1;
+    -fx-scale-y : 1.1;
+    -fx-effect : dropshadow(three-pass-box, #FFFFFF, 0.0, 0.0, -2, 1);
+
+    transition : -fx-scale-x 0.3s ease,
+                 -fx-scale-y 0.3s ease,
+                 -fx-effect 0.3s ease;
+}
+
+.restaurantLabelWhite
+{
+    -fx-scale-x : 1.1;
+    -fx-scale-y : 1.1;
+    -fx-effect : dropshadow(three-pass-box, #000000, 0.0, 0.0, -2, 1);
+
+    transition : -fx-scale-x 0.3s ease,
+                 -fx-scale-y 0.3s ease,
+                 -fx-effect 0.3s ease;
+}
+
+.restaurantLabelOrange
+{
+    -fx-scale-x : 1.1;
+    -fx-scale-y : 1.1;
+    -fx-effect : dropshadow(three-pass-box, #ffffff, 0.0, 0.0, -2, 1);
+
+    transition : -fx-scale-x 0.3s ease,
+                 -fx-scale-y 0.3s ease,
+                 -fx-effect 0.3s ease;
+}
+
+
