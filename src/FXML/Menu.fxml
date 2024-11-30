@@ -1,0 +1,1769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuSelection">
+   <children>
+      <BorderPane layoutX="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0">
+         <right>
+            <Pane layoutX="1300.0" prefHeight="706.0" prefWidth="508.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="-2.0" layoutY="-3.0" prefHeight="74.0" prefWidth="507.0" text="CART" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="56.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                     </effect>
+                  </Label>
+                  <Label fx:id="totalPriceLabel" layoutX="15.0" layoutY="581.0" prefHeight="57.0" prefWidth="251.0" text="TOTAL:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="cartListView" layoutY="128.0" prefHeight="447.0" prefWidth="503.0" />
+                  <Button fx:id="checkOut_Btn" layoutX="401.0" layoutY="595.0" mnemonicParsing="false" onAction="#checkOut_Btn_Click" prefHeight="33.0" prefWidth="91.0" text="CHECKOUT" />
+               </children>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.26" specularExponent="12.3" surfaceScale="4.08">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="181.65" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Pane>
+         </right>
+         <top>
+            <Pane prefHeight="110.0" prefWidth="1536.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="-2.0" prefHeight="110.0" prefWidth="871.0">
+                     <children>
+                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="110.0" prefWidth="110.0" stylesheets="@../CSS/Checkout.css" text="&lt;--" textAlignment="CENTER">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="33.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="118.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/LOGO-removebg-preview.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="110.0" prefWidth="292.0" text="LOCKED UP" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
+                                 <color>
+                                    <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Label>
+                        <Label layoutY="10.0" prefHeight="110.0" prefWidth="273.0" text="MUNCHIES" textFill="#ff7653">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <effect>
+                              <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                           </effect>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.28" specularExponent="12.9" surfaceScale="4.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="124.17" elevation="35.0" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Pane>
+         </top>
+         <center>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1110.0" prefWidth="1012.0" style="-fx-background-color: #313131;">
+                     <children>
+                        <HBox fx:id="AG_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/ayam-gepok-top-global-set-a-min.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Ayam Gepuk SET A">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Ayam Gepuk x1,  Sambal, Sayur kobis, Kuah kacang" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 11.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="AG_SETA_MINUS" mnemonicParsing="false" onAction="#AG_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="AG_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="AG_SETA_PLUS" mnemonicParsing="false" onAction="#AG_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </HBox>
+                        <HBox fx:id="AG_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/ayam-gepok-top-global-set-b-min.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Ayam Gepuk SET B">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Ayam Gepuk x1,  Sambal, Sayur kobis, Kuah kacang, Tempe, Tauhu" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 12.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="AG_SETB_MINUS" mnemonicParsing="false" onAction="#AG_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="AG_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="AG_SETB_PLUS" mnemonicParsing="false" onAction="#AG_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="AG_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/ayam-gepok-top-global-set-c-min.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Ayam Gepuk SET C">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Ayam Gepuk x1,  Sambal, Sayur kobis, Kuah kacang, Tempe, Tauhu, Pedal" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 13.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="AG_SETC_MINUS" mnemonicParsing="false" onAction="#AG_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="AG_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="AG_SETC_PLUS" mnemonicParsing="false" onAction="#AG_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFC_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/kfc1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Kid's Meal">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="30.0" prefWidth="400.0" text="Chicken 1pc, Drink x1, Mashed potato x1" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 10.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFC_SETA_MINUS" mnemonicParsing="false" onAction="#KFC_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFC_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFC_SETA_PLUS" mnemonicParsing="false" onAction="#KFC_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFC_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/kfc.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="3 Piece chicken SET">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="56.0" prefWidth="400.0" text="Chicken 3pc, Corleslaw x1, Mashed potato x1, Bun x1, Drink x1" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 14.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFC_SETB_MINUS" mnemonicParsing="false" onAction="#KFC_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFC_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFC_SETB_PLUS" mnemonicParsing="false" onAction="#KFC_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFC_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/TWISTERCBO.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Twister SET">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="56.0" prefWidth="400.0" text="Twister x1, French fries (M) x1, Drink x1" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 7.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFC_SETC_MINUS" mnemonicParsing="false" onAction="#KFC_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFC_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFC_SETC_PLUS" mnemonicParsing="false" onAction="#KFC_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RICHEESE_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/richeeseFire.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="COMBO Set">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Fire Flying Chicken (Whole) x1, Bandung Ice x3, Corleslaw x3, Mashed potato x3" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 53.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RICHEESE_SETB_MINUS" mnemonicParsing="false" onAction="#RICHEESE_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RICHEESE_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RICHEESE_SETB_PLUS" mnemonicParsing="false" onAction="#RICHEESE_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RICHEESE_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/bandungIce.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Bandung Ice">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="400.0" text="Bandung Ice x1" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 5.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RICHEESE_SETC_MINUS" mnemonicParsing="false" onAction="#RICHEESE_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RICHEESE_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RICHEESE_SETC_PLUS" mnemonicParsing="false" onAction="#RICHEESE_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RICHEESE_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/richeese2.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Fire Chicken Set">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="Fire chicken 2pc, Mashed potato x1, Corleslaw x1, Bandung Ice x1, Cheese x1" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 22.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RICHEESE_SETA_MINUS" mnemonicParsing="false" onAction="#RICHEESE_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RICHEESE_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RICHEESE_SETA_PLUS" mnemonicParsing="false" onAction="#RICHEESE_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="NANDOS_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/PERi-Mac-Cheese-1024x1024.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Mac n' Cheese">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="Bowl of Mac n' cheese" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 20.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="NANDOS_SETA_MINUS" mnemonicParsing="false" onAction="#NANDOS_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="NANDOS_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="NANDOS_SETA_PLUS" mnemonicParsing="false" onAction="#NANDOS_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="NANDOS_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/PERi-Honey-Yuzu-Thigh-Bowl-1-1024x1024.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Honey Yuzu Thigh Bowl">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Honey Yuzu x2, Bowl of fried rice" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 18.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="NANDOS_SETB_MINUS" mnemonicParsing="false" onAction="#NANDOS_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="NANDOS_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="NANDOS_SETB_PLUS" mnemonicParsing="false" onAction="#NANDOS_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="NANDOS_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/Chrispy-Cheese-Chicken-Wrap-2-Sides-v2.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Cheesy Chicken Wrap">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="25.0" prefWidth="400.0" text="Chicken wrap x2, French fries, Salad" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 14.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="NANDOS_SETC_MINUS" mnemonicParsing="false" onAction="#NANDOS_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="NANDOS_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="NANDOS_SETC_PLUS" mnemonicParsing="false" onAction="#NANDOS_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFRY_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/honeymustard_bumbuk.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Honey Mustard Bumbuk">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="A plate of cheese with Fries and Bumbuk" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 17.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFRY_SETA_MINUS" mnemonicParsing="false" onAction="#KFRY_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFRY_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFRY_SETA_PLUS" mnemonicParsing="false" onAction="#KFRY_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFRY_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/kfry.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Honey chicken">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="Honey chicken 5pc, A plate of cheese and french fries" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 22.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFRY_SETB_MINUS" mnemonicParsing="false" onAction="#KFRY_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFRY_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFRY_SETB_PLUS" mnemonicParsing="false" onAction="#KFRY_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="KFRY_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/kfry1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Cheesy chicken">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="57.0" prefWidth="400.0" text="Chicken wrapped in cheese 5pc, A plate of fries" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 26.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="KFRY_SETC_MINUS" mnemonicParsing="false" onAction="#KFRY_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="KFRY_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="KFRY_SETC_PLUS" mnemonicParsing="false" onAction="#KFRY_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="BBB_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/Tom-Yum-Goong-1-scaled.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Tom Yam Campur">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="Bowl of Tomyam with mix of seafood and pieces of chicken" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 8.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="BBB_SETA_MINUS" mnemonicParsing="false" onAction="#BBB_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="BBB_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="BBB_SETA_PLUS" mnemonicParsing="false" onAction="#BBB_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="BBB_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/telur%20bungkus.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Telur Bungkus">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="An egg wrap with mix of mince meat, mixed vegetables inside" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 5.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="BBB_SETB_MINUS" mnemonicParsing="false" onAction="#BBB_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="BBB_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="BBB_SETB_PLUS" mnemonicParsing="false" onAction="#BBB_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="BBB_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/teh-o-ais-1718263776748.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Teh O' Ais">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="57.0" prefWidth="400.0" text="Iced Tea" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 2.50">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="BBB_SETC_MINUS" mnemonicParsing="false" onAction="#BBB_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="BBB_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="BBB_SETC_PLUS" mnemonicParsing="false" onAction="#BBB_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RBS_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/Roti-canai.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Roti Canai">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="Great for anytime" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 1.50">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RBS_SETA_MINUS" mnemonicParsing="false" onAction="#RBS_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RBS_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RBS_SETA_PLUS" mnemonicParsing="false" onAction="#RBS_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RBS_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/nasiGorengAyam.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Nasi goreng ayam">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="A plate of fried rice with a piece of chicken" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 8.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RBS_SETB_MINUS" mnemonicParsing="false" onAction="#RBS_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RBS_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RBS_SETB_PLUS" mnemonicParsing="false" onAction="#RBS_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="RBS_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/miloAis.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Milo Ais">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="57.0" prefWidth="400.0" text="A cup of milo drink" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 2.50">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="RBS_SETC_MINUS" mnemonicParsing="false" onAction="#RBS_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="RBS_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="RBS_SETC_PLUS" mnemonicParsing="false" onAction="#RBS_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="GEMAS_SETA_HBOX" layoutX="140.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/nasiAyambiasa.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Nasi Ayam Panggang">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="55.0" prefWidth="400.0" text="Roasted chicken with chicken rice" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 7.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="GEMAS_SETA_MINUS" mnemonicParsing="false" onAction="#GEMAS_SETA_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="GEMAS_SETA_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="GEMAS_SETA_PLUS" mnemonicParsing="false" onAction="#GEMAS_SETA_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="GEMAS_SETB_HBOX" layoutX="140.0" layoutY="410.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/nasiAyamBBQ.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Nasi Ayam BBQ">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="62.0" prefWidth="400.0" text="A plate of chicken rice with Barbecued chicken" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 9.90">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="GEMAS_SETB_MINUS" mnemonicParsing="false" onAction="#GEMAS_SETB_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="GEMAS_SETB_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="GEMAS_SETB_PLUS" mnemonicParsing="false" onAction="#GEMAS_SETB_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="GEMAS_SETC_HBOX" layoutX="140.0" layoutY="770.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: White; -fx-background-radius: 25; -fx-border-radius: 25;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../Images/Foods/teh-o-ais-1718263776748.jpg" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="300.0" prefWidth="400.0">
+                                 <children>
+                                    <Label text="Teh O' Ais">
+                                       <font>
+                                          <Font name="Gill Sans MT Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="57.0" prefWidth="400.0" text="Iced Tea" wrapText="true">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="21.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="RM : 2.50">
+                                       <font>
+                                          <Font name="Gill Sans MT" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="50.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="32.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="GEMAS_SETC_MINUS" mnemonicParsing="false" onAction="#GEMAS_SETC_MINUS_Click" prefHeight="26.0" prefWidth="27.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="-">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="100.0" right="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label fx:id="GEMAS_SETC_QUANTITY" text="0">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="GEMAS_SETC_PLUS" mnemonicParsing="false" onAction="#GEMAS_SETC_PLUS_Click" prefHeight="17.0" prefWidth="6.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" text="+">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" top="1.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

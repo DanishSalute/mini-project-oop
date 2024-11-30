@@ -21,57 +21,32 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomePageController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/homepageBackground.jpg" />
-         </image>
-      </ImageView>
-      <BorderPane layoutX="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0">
-         <right>
-            <Pane layoutX="1300.0" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="302.0" text="CART" textFill="WHITE" underline="true">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="40.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <effect>
-                        <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
-                     </effect>
-                  </Label>
-               </children>
-               <effect>
-                  <Lighting diffuseConstant="2.0" specularConstant="0.26" specularExponent="12.3" surfaceScale="4.08">
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant azimuth="181.65" />
-                     </light>
-                  </Lighting>
-               </effect>
-            </Pane>
-         </right>
+      <ImageView fx:id="backgroundDoodle" fitHeight="816.0" fitWidth="1536.0" pickOnBounds="true" />
+      <BorderPane layoutX="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0">
          <top>
-            <Pane prefHeight="50.0" prefWidth="1008.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="110.0" prefWidth="1536.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox layoutX="-2.0" prefHeight="50.0" prefWidth="475.0">
+                  <HBox layoutX="-2.0" prefHeight="110.0" prefWidth="871.0">
                      <children>
-                        <VBox fx:id="logoutButton" onMouseClicked="#logoutButtonClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #FF7653; -fx-background-radius: 0px 5px 5px 0px;">
+                        <VBox fx:id="logoutButton" onMouseClicked="#logoutButtonClicked" prefHeight="110.0" prefWidth="110.0" style="-fx-background-color: #FF7653; -fx-background-radius: 0px 5px 5px 0px;">
                            <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <VBox.margin>
-                                    <Insets left="15.0" right="10.0" top="6.0" />
+                                    <Insets left="28.0" top="10.0" />
                                  </VBox.margin>
                                  <image>
                                     <Image url="@../Images/exit.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="23.0" prefWidth="52.0" text="LOGOUT" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefHeight="23.0" prefWidth="95.0" text="LOGOUT" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" top="13.0" />
+                                 </VBox.margin></Label>
                            </children>
                            <padding>
                               <Insets left="1.0" />
@@ -83,7 +58,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </VBox>
-                        <ImageView fitHeight="38.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="118.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/LOGO-removebg-preview.png" />
                            </image>
@@ -91,9 +66,9 @@
                               <Insets left="10.0" top="6.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="50.0" prefWidth="178.0" text="LOCKED UP" textFill="WHITE">
+                        <Label prefHeight="110.0" prefWidth="292.0" text="LOCKED UP" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="24.0" />
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
                            </font>
                            <opaqueInsets>
                               <Insets />
@@ -109,9 +84,9 @@
                               </DropShadow>
                            </effect>
                         </Label>
-                        <Label layoutY="10.0" prefHeight="50.0" prefWidth="178.0" text="MUNCHIES" textFill="#ff7653">
+                        <Label layoutY="10.0" prefHeight="110.0" prefWidth="273.0" text="MUNCHIES" textFill="#ff7653">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="24.0" />
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
                            </font>
                            <opaqueInsets>
                               <Insets />
@@ -122,19 +97,19 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox layoutX="700.0" prefHeight="50.0" prefWidth="300.0">
+                  <HBox layoutX="899.0" prefHeight="108.0" prefWidth="638.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="303.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
+                        <Label fx:id="displayUsername" alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="553.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                            <font>
-                              <Font name="Gill Sans MT" size="14.0" />
+                              <Font name="Gill Sans MT" size="32.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                              <Insets bottom="5.0" left="5.0" right="10.0" top="10.0" />
                            </HBox.margin>
                            <image>
                               <Image url="@../Images/userDefaultPicture.png" />
@@ -158,34 +133,37 @@
          <center>
             <GridPane prefHeight="450.0" prefWidth="611.0" styleClass="homepageDoodle" stylesheets="@../CSS/background.css" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="483.2" minWidth="10.0" prefWidth="483.2" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="539.2000976562501" minWidth="10.0" prefWidth="289.59999999999997" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.6000244140625" minWidth="10.0" prefWidth="273.39997558593745" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="531.2000732421875" minWidth="10.0" prefWidth="490.4000244140625" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="236.6" minHeight="10.0" prefHeight="29.33333396911621" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="283.1999858856201" minHeight="10.0" prefHeight="222.6666660308838" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="147.19998779296876" minHeight="2.400018310546841" prefHeight="22.40001831054687" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="247.2000274658203" minHeight="10.0" prefHeight="176.8" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="236.6" minHeight="6.19999990463257" prefHeight="74.399951171875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="414.40000009536743" minHeight="10.0" prefHeight="340.000048828125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="147.19998779296876" minHeight="2.400018310546841" prefHeight="16.93330688476567" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="275.06669311523444" minHeight="10.0" prefHeight="275.06669311523444" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="20.0" left="200.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="rbsLabel" alignment="CENTER" prefHeight="48.0" prefWidth="135.0" text="RBS" textFill="#ff7653">
+                        <Label fx:id="rbsLabel" alignment="CENTER" onMouseClicked="#rbsLabel_Clicked" prefHeight="139.0" prefWidth="270.0" text="RBS" textFill="#ff7653">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="30.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="rbsImage" fill="DODGERBLUE" radius="53.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="50.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="rbsImage" fill="DODGERBLUE" onMouseClicked="#rbsImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -198,17 +176,20 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="gemasLabel" alignment="CENTER" prefHeight="58.0" prefWidth="138.0" text="NASI AYAM GEMAS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                        <Label fx:id="gemasLabel" alignment="CENTER" onMouseClicked="#gemasLabel_Clicked" prefHeight="139.0" prefWidth="270.0" text="NASI AYAM GEMAS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="25.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="gemasImage" fill="DODGERBLUE" radius="55.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="gemasImage" fill="DODGERBLUE" onMouseClicked="#gemasImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -221,17 +202,20 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="gepukLabel" alignment="CENTER" prefHeight="58.0" prefWidth="138.0" text="AYAM GEPUK TOP GLOBAL" textAlignment="CENTER" textFill="#ff7653" wrapText="true">
+                        <Label fx:id="gepukLabel" alignment="CENTER" onMouseClicked="#gepukLabel_Clicked" prefHeight="146.0" prefWidth="278.0" text="AYAM GEPUK TOP GLOBAL" textAlignment="CENTER" textFill="#ff7653" wrapText="true">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="25.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="gepukImage" fill="DODGERBLUE" radius="55.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="gepukImage" fill="DODGERBLUE" onMouseClicked="#gepukImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -244,17 +228,20 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="bbbLabel" alignment="CENTER" prefHeight="44.0" prefWidth="138.0" text="BBB TOMYAM" textFill="#848484">
+                        <Label fx:id="bbbLabel" alignment="CENTER" onMouseClicked="#bbbLabel_Clicked" prefHeight="106.0" prefWidth="234.0" text="BBB TOMYAM" textAlignment="CENTER" textFill="#848484">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="25.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="bbbImage" fill="DODGERBLUE" radius="55.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="bbbImage" fill="DODGERBLUE" onMouseClicked="#bbbImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="10.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -264,20 +251,23 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="20.0" left="200.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="kfryLabel" alignment="CENTER" prefHeight="50.0" prefWidth="144.0" text="K-FRY" textFill="#848484">
+                        <Label fx:id="kfryLabel" alignment="CENTER" onMouseClicked="#kfryLabel_Clicked" prefHeight="36.0" prefWidth="309.0" text="K-FRY" textFill="#848484">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="28.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="kfryImage" fill="DODGERBLUE" radius="53.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="50.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="kfryImage" fill="DODGERBLUE" onMouseClicked="#kfryImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -290,17 +280,20 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="nandosLabel" alignment="CENTER" prefHeight="50.0" prefWidth="144.0" text="NANDOS" textFill="#848484">
+                        <Label fx:id="nandosLabel" alignment="CENTER" onMouseClicked="#nandosLabel_Clicked" prefHeight="36.0" prefWidth="306.0" text="NANDOS" textFill="#848484">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="28.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="nandosImage" fill="DODGERBLUE" radius="53.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="70.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="nandosImage" fill="DODGERBLUE" onMouseClicked="#nandosImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" right="13.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -313,17 +306,20 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="richeeseLabel" alignment="CENTER" prefHeight="50.0" prefWidth="144.0" text="RICHEESE" textFill="#ff7653">
+                        <Label fx:id="richeeseLabel" alignment="CENTER" onMouseClicked="#richeeseLabel_Clicked" prefHeight="30.0" prefWidth="339.0" text="RICHEESE" textFill="#ff7653">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="26.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Label>
-                        <Circle fx:id="richeeseImage" fill="DODGERBLUE" radius="53.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets right="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Circle fx:id="richeeseImage" fill="DODGERBLUE" onMouseClicked="#richeeseImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" top="15.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -336,17 +332,17 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label fx:id="kfcLabel" alignment="CENTER" prefHeight="64.0" prefWidth="135.0" text="KFC" textFill="WHITE">
+                        <Label fx:id="kfcLabel" alignment="CENTER" onMouseClicked="#kfcLabel_Clicked" prefHeight="35.0" prefWidth="204.0" text="KFC" textFill="WHITE">
                            <font>
-                              <Font name="Gill Sans Ultra Bold" size="16.0" />
+                              <Font name="Gill Sans Ultra Bold" size="28.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Circle fx:id="kfcImage" fill="DODGERBLUE" radius="53.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
+                        <Circle fx:id="kfcImage" fill="DODGERBLUE" onMouseClicked="#kfcImage_Clicked" radius="95.0" stroke="#636363" strokeType="INSIDE" strokeWidth="5.0">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="15.0" right="13.0" top="15.0" />
+                              <Insets bottom="15.0" left="10.0" top="5.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -354,17 +350,17 @@
                         </Circle>
                      </children>
                   </VBox>
-                  <Label prefHeight="26.0" prefWidth="175.0" text="FAST FOOD!" textFill="#ff7653" underline="true" GridPane.rowIndex="2">
+                  <Label prefHeight="26.0" prefWidth="319.0" text="FAST FOOD!" textFill="#ff7653" underline="true" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Gill Sans Ultra Bold" size="13.0" />
+                        <Font name="Gill Sans Ultra Bold" size="20.0" />
                      </font>
                      <padding>
                         <Insets left="15.0" />
                      </padding>
                   </Label>
-                  <Label prefHeight="38.0" prefWidth="175.0" text="LOCAL DELIGHTS" textFill="WHITE" underline="true" wrapText="true">
+                  <Label prefHeight="47.0" prefWidth="280.0" text="LOCAL DELIGHTS" textFill="WHITE" underline="true" wrapText="true">
                      <font>
-                        <Font name="Gill Sans Ultra Bold" size="15.0" />
+                        <Font name="Gill Sans Ultra Bold" size="25.0" />
                      </font>
                      <padding>
                         <Insets left="15.0" top="15.0" />

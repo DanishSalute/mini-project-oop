@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuSelection">
+   <right>
+      <Pane layoutX="1300.0" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="foodlist" layoutX="136.0" layoutY="125.0" text="-" />
+            <ScrollPane layoutX="9.0" layoutY="77.0" prefHeight="454.0" prefWidth="287.0" vbarPolicy="ALWAYS">
+               <content>
+                  <Pane prefHeight="470.0" prefWidth="208.0">
+                     <children>
+                        <Label fx:id="purchaselist" layoutX="6.0" layoutY="4.0" prefHeight="457.0" prefWidth="250.0" />
+                     </children></Pane>
+               </content>
+            </ScrollPane>
+            <Label alignment="CENTER" layoutX="11.0" prefHeight="60.0" prefWidth="302.0" text="CART" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="40.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+               </effect>
+            </Label>
+            <Label fx:id="totalprice" layoutX="27.0" layoutY="529.0" prefHeight="57.0" prefWidth="251.0" text="TOTAL:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="checkoutBtn" layoutX="195.0" layoutY="631.0" mnemonicParsing="false" onAction="#checkoutButton_CLICKED" prefHeight="42.0" prefWidth="93.0" text="Checkout">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
+         </children>
+      </Pane>
+   </right>
+   <top>
+      <Pane prefHeight="95.0" prefWidth="1435.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="278.0" layoutY="19.0" prefHeight="94.0" prefWidth="532.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label prefHeight="50.0" prefWidth="184.0" text="LOCKED UP">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
+                           <color>
+                              <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Label prefHeight="57.0" prefWidth="179.0" text="MUNCHIES" textFill="#ff7653">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="26.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                     </effect>
+                  </Label>
+               </children>
+            </HBox>
+            <Button fx:id="backfoodmenuBtn" layoutX="50.0" layoutY="22.0" mnemonicParsing="false" onAction="#backfoodmenuClicked" prefHeight="49.0" prefWidth="94.0" text="Back">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+         </children></Pane>
+   </top>
+   <center>
+      <ScrollPane prefHeight="446.0" prefWidth="788.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="767.0" prefWidth="1112.0">
+               <children>
+                  <ImageView fx:id="nasigorengayam_RBS_pic" fitHeight="195.0" fitWidth="227.0" layoutX="28.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/nasiGorengAyam.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="tehoais_rbs_pic" fitHeight="211.0" fitWidth="309.0" layoutX="71.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/teh-o-ais-1718263776748.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="roticanai_rbs_pic" fitHeight="154.0" fitWidth="222.0" layoutX="28.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/Roti-canai.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nasigorengayam_rbs_text" layoutX="284.0" layoutY="111.0" text="Nasi goreng ayam" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="tehoais_rbs_text" layoutX="303.0" layoutY="529.0" text="teh o ais" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="roticanai_rbs_text" layoutX="298.0" layoutY="360.0" text="Roti canai" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="RBS_title" layoutX="41.0" text="RBS" visible="false">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="nasigorengplus" layoutX="433.0" layoutY="188.0" mnemonicParsing="false" onAction="#nasigorengclickedplus" prefHeight="50.0" prefWidth="48.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tehaisplus" layoutX="446.0" layoutY="551.0" mnemonicParsing="false" onAction="#tehoaisclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="roticanaiplus" layoutX="447.0" layoutY="383.0" mnemonicParsing="false" onAction="#roticanaiclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nasigorengminus" layoutX="534.0" layoutY="186.0" mnemonicParsing="false" onAction="#nasigorengclickedminus" prefHeight="49.0" prefWidth="45.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tehaisminus" layoutX="545.0" layoutY="548.0" mnemonicParsing="false" onAction="#tehoaisclickedminus" prefHeight="45.0" prefWidth="45.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="roticanaiminus" layoutX="534.0" layoutY="383.0" mnemonicParsing="false" onAction="#roticanaiclickedminus" prefHeight="45.0" prefWidth="43.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="nasigorengvalue" alignment="CENTER_RIGHT" layoutX="493.0" layoutY="197.0" text="0" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="tehoaisvalue" layoutX="506.0" layoutY="551.0" text="0" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="roticanai_value" layoutX="489.0" layoutY="258.0" text="0" visible="false" />
+                  <Label fx:id="nasigorengayam_rbs_price" layoutX="318.0" layoutY="184.0" text="RM8" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="tehoais_rbs_price" layoutX="306.0" layoutY="576.0" text="RM2.00" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="roticanai_rbs_price" layoutX="308.0" layoutY="420.0" text="RM1.50" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <ImageView fx:id="nasiayambbq_nasiayamgemas_pic" fitHeight="242.0" fitWidth="254.0" layoutX="10.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/nasiAyamBBQ.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="nasiayambiasa_nasiayamgemas_pic" fitHeight="159.0" fitWidth="293.0" layoutX="18.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/nasiAyambiasa.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="miloais_nasiayamgemas_pic" fitHeight="219.0" fitWidth="247.0" layoutX="43.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/miloAis.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nasiayambbq_nasiayamgemas_text" layoutX="284.0" layoutY="112.0" text="nasi ayam bbq" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <Label fx:id="nasiayambbq_nasiayamgemas_price" layoutX="284.0" layoutY="138.0" text="RM8" visible="false" />
+                  <Button fx:id="nasiayambbq_nasiayamgemas_plus" layoutX="449.0" layoutY="108.0" mnemonicParsing="false" onAction="#nasiayambbq_nasiayamgemas_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="nasiayambbq_nasiayamgemas_value" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="111.0" text="0" visible="false" />
+                  <Button fx:id="nasiayambbq_nasiayamgemas_minus" layoutX="515.0" layoutY="109.0" mnemonicParsing="false" onAction="#nasiayambbq_nasiayamgemas_onclicked_minus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="nasiayambiasa_nasiayamgemas_text" layoutX="283.0" layoutY="257.0" text="nasi ayam biasa" visible="false" />
+                  <Label fx:id="nasiayambiasa_nasiayamgemas_price" layoutX="284.0" layoutY="278.0" text="RM6.00" visible="false" />
+                  <Button fx:id="nasiayambiasa_nasiayamgemas_plus" layoutX="449.0" layoutY="254.0" mnemonicParsing="false" onAction="#nasiayambiasa_nasiayamgemas_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nasiayambiasa_nasiayamgemas_minus" layoutX="514.0" layoutY="254.0" mnemonicParsing="false" onAction="#nasiayambiasa_nasiayamgemas_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="nasiayambiasa_nasiayamgemas_value" layoutX="489.0" layoutY="258.0" text="0" visible="false" />
+                  <Label fx:id="miloais_nasiayamgemas_text" layoutX="284.0" layoutY="388.0" text="milo ais" visible="false" />
+                  <Label fx:id="miloais_nasiayamgemas_price" layoutX="289.0" layoutY="411.0" text="RM2.00" visible="false" />
+                  <Button fx:id="miloais_nasiayamgemas_plus" layoutX="449.0" layoutY="392.0" mnemonicParsing="false" onAction="#miloais_nasiayamgemas_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="miloais_nasiayamgemas_value" layoutX="488.0" layoutY="396.0" text="0" visible="false" />
+                  <Button fx:id="miloais_nasiayamgemas_minus" layoutX="515.0" layoutY="393.0" mnemonicParsing="false" onAction="#miloais_nasiayamgemas_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="Nasiayamgemas_title" layoutX="43.0" layoutY="29.0" text="Nasi ayam Gemas" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="ayamgepuk_setA_pic" fitHeight="111.0" fitWidth="113.0" layoutX="71.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/ayam-gepok-top-global-set-a-min.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ayamgepuk_setB_pic" fitHeight="110.0" fitWidth="150.0" layoutX="72.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/ayam-gepok-top-global-set-b-min.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ayamgepuk_setC_pic" fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/ayam-gepok-top-global-set-c-min.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="ayamgepuk_setA_text" layoutX="284.0" layoutY="113.0" text="Ayam gepuk set A" visible="false" />
+                  <Label fx:id="ayamgepuk_setA_price" layoutX="277.0" layoutY="138.0" text="RM8" visible="false" />
+                  <Label fx:id="ayamgepuk_setB_text" layoutX="283.0" layoutY="257.0" text="Ayam gepuk set B" visible="false" />
+                  <Label fx:id="ayamgepuk_setB_price" layoutX="284.0" layoutY="278.0" text="RM9.00" visible="false" />
+                  <Label fx:id="ayamgepuk_setC_text" layoutX="287.0" layoutY="388.0" text="Ayam gepuk set C" visible="false" />
+                  <Label fx:id="ayamgepuk_setB_price" layoutX="285.0" layoutY="411.0" text="RM10.00" visible="false" />
+                  <Button fx:id="ayamgepuk_setA_plus" layoutX="449.0" layoutY="109.0" mnemonicParsing="false" onAction="#ayamgepuksetaclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ayamgepuk_setA_minus" layoutX="514.0" layoutY="108.0" mnemonicParsing="false" onAction="#ayamgepuksetaclickedminus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="ayamgepuk_setA_value" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="113.0" text="0" visible="false" />
+                  <Label fx:id="ayamgepuk_setA_value" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="112.0" text="0" visible="false" />
+                  <Button fx:id="ayamgepuk_setB_plus" layoutX="449.0" layoutY="255.0" mnemonicParsing="false" onAction="#ayamgepuksetbclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ayamgepuk_setB_minus" layoutX="514.0" layoutY="254.0" mnemonicParsing="false" onAction="#ayamgepuksetbclickedminus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="ayamgepuk_setB_value" layoutX="487.0" layoutY="259.0" text="0" visible="false" />
+                  <Button fx:id="ayamgepuk_setC_plus" layoutX="449.0" layoutY="393.0" mnemonicParsing="false" onAction="#ayamgepuksetcclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="ayamgepuk_setC_value" layoutX="487.0" layoutY="396.0" text="0" visible="false" />
+                  <Button fx:id="ayamgepuk_setC_minus" layoutX="515.0" layoutY="392.0" mnemonicParsing="false" onAction="#ayamgepuksetcclickedminus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="ayamgepuk_title" layoutX="43.0" layoutY="29.0" text="Ayam gepuk top global" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="tomyum_pic" fitHeight="111.0" fitWidth="183.0" layoutX="33.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/Tom-Yum-Goong-1-scaled.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="tomyum_text" layoutX="277.0" layoutY="111.0" text="Tom yum" visible="false" />
+                  <Label fx:id="tomyum_price" layoutX="284.0" layoutY="138.0" text="RM8" visible="false" />
+                  <ImageView fx:id="telurbungkus_pic" fitHeight="110.0" fitWidth="150.0" layoutX="32.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/telur%20bungkus.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="telurbungkus_text" layoutX="284.0" layoutY="257.0" text="telur bungkus" visible="false" />
+                  <Label fx:id="telurbungkus_price" layoutX="284.0" layoutY="278.0" text="RM4.00" visible="false" />
+                  <Button fx:id="telurbungkus_plus" layoutX="449.0" layoutY="255.0" mnemonicParsing="false" onAction="#telurbungkusclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="telurbungkus_value" layoutX="488.0" layoutY="259.0" text="0" visible="false" />
+                  <Button fx:id="telurbungkusminus" layoutX="514.0" layoutY="253.0" mnemonicParsing="false" onAction="#telurbungkusclickedminus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tomyumminus" layoutX="449.0" layoutY="110.0" mnemonicParsing="false" onAction="#tomyumclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="tomyum_bbb_value" alignment="CENTER_RIGHT" layoutX="488.0" layoutY="114.0" text="0" visible="false" />
+                  <Button fx:id="tomyumminus" layoutX="514.0" layoutY="108.0" mnemonicParsing="false" onAction="#tomyumclickedminus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="tehoais_bbb_pic" fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/teh-o-ais-1718263776748.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="tehoais_bbb_text" layoutX="287.0" layoutY="388.0" text="teh o ais" visible="false" />
+                  <Label fx:id="tehoais_bbb_price" layoutX="289.0" layoutY="412.0" text="RM2.00" visible="false" />
+                  <Button fx:id="tehais_bbb_plus" layoutX="449.0" layoutY="393.0" mnemonicParsing="false" onAction="#tehoais_bbb_clickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tehoais_bbb_minus" layoutX="514.0" layoutY="393.0" mnemonicParsing="false" onAction="#tehoais_bbb_clickedminus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="tehoais_bbb_value" layoutX="489.0" layoutY="397.0" text="0" visible="false" />
+                  <Label fx:id="bbbtomyum_title" layoutX="43.0" layoutY="29.0" text="BBB Tomyum" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="kidsmeal_kfc_pic" fitHeight="111.0" fitWidth="183.0" layoutX="31.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/kfc1.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="kidsmeal_kfc_text" layoutX="283.0" layoutY="112.0" text="kids meals" visible="false" />
+                  <Label fx:id="kidsmeal_kfc_price" layoutX="284.0" layoutY="138.0" text="RM8" visible="false" />
+                  <Button fx:id="kidsmeal_kfc_plus" layoutX="449.0" layoutY="108.0" mnemonicParsing="false" onAction="#kidsmeal_kfc_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="kidsmeal_kfc_minus" layoutX="515.0" layoutY="109.0" mnemonicParsing="false" onAction="#kidsmeal_kfc_onclicked_minus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="kidsmeal_kfc_value" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="111.0" text="0" visible="false" />
+                  <ImageView fx:id="snackerplate_kfc_pic" fitHeight="142.0" fitWidth="227.0" layoutX="14.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/FLBM_SF_1200x900.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="snackerplate_kfc_text" layoutX="283.0" layoutY="257.0" text="Snacker plate" visible="false" />
+                  <Label fx:id="snackerplate_kfc_price" layoutX="282.0" layoutY="278.0" text="RM10.00" visible="false" />
+                  <Button fx:id="snackerplate_kfc_plus" layoutX="449.0" layoutY="255.0" mnemonicParsing="false" onAction="#snackerplate_kfc_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="snackerplate_kfc_minus" layoutX="515.0" layoutY="253.0" mnemonicParsing="false" onAction="#snackerplate_kfc_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="roticanaivalue" layoutX="498.0" layoutY="389.0" text="0" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font></Label>
+                  <ImageView fx:id="koreanwrap_kfc_pic" fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/TWISTERCBO.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="koreanwrap_kfc_text" layoutX="283.0" layoutY="388.0" text="korean wrap" visible="false" />
+                  <Label fx:id="koreanwrap_kfc_price" layoutX="289.0" layoutY="411.0" text="RM7.00" visible="false" />
+                  <Button fx:id="koreanwrap_kfc_plus" layoutX="449.0" layoutY="392.0" mnemonicParsing="false" onAction="#koreanwrap_kfc_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="koreanwrap_kfc_minus" layoutX="514.0" layoutY="392.0" mnemonicParsing="false" onAction="#koreanwrap_kfc_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="koreanwrap_kfc_value" layoutX="487.0" layoutY="396.0" text="0" visible="false" />
+                  <Label fx:id="kfc_title" layoutX="44.0" layoutY="29.0" text="KFC" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="thighbowl_nandos_pic" fitHeight="129.0" fitWidth="202.0" layoutX="31.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/PERi-Honey-Yuzu-Thigh-Bowl-1-1024x1024.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nandos_title" layoutX="43.0" layoutY="29.0" text="nandos" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="thighbowl_nandos_text" layoutX="284.0" layoutY="111.0" text="yuzu honey thigh bowl" visible="false" />
+                  <Label fx:id="thighbowl_nandos_price" layoutX="284.0" layoutY="138.0" text="RM13.00" visible="false" />
+                  <Button fx:id="thighbowl_nandos_plus" layoutX="449.0" layoutY="109.0" mnemonicParsing="false" onAction="#thighbowl_nandos_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="thighbowl_nandos_value" alignment="CENTER_RIGHT" layoutX="486.0" layoutY="113.0" text="0" visible="false" />
+                  <Button fx:id="thighbowl_nandos_minus" layoutX="514.0" layoutY="108.0" mnemonicParsing="false" onAction="#thighbowl_nandos_onclicked_minus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="chickenwrap_nandos_pic" fitHeight="124.0" fitWidth="319.0" layoutX="65.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/Chrispy-Cheese-Chicken-Wrap-2-Sides-v2.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="chickenwrap_nandos_text" layoutX="283.0" layoutY="257.0" text="chicken wrap" visible="false" />
+                  <Label fx:id="chickenwrap_nandos_price" layoutX="282.0" layoutY="278.0" text="RM7.00" visible="false" />
+                  <Button fx:id="chickenwrap_nandos_plus" layoutX="449.0" layoutY="253.0" mnemonicParsing="false" onAction="#roticanaiclickedplus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="chickenwrap_nandos_value" layoutX="489.0" layoutY="259.0" text="0" visible="false" />
+                  <Button fx:id="telurbungkusminus1" layoutX="514.0" layoutY="253.0" mnemonicParsing="false" onAction="#chickenwrap_nandos_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="macncheese_nandos_pic" fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/PERi-Mac-Cheese-1024x1024.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="macnchesse_nandos_text" layoutX="289.0" layoutY="389.0" text="mac and cheese" visible="false" />
+                  <Label fx:id="macncheese_nandos_price" layoutX="288.0" layoutY="411.0" text="RM8.00" visible="false" />
+                  <Button fx:id="macncheese_nandos_plus" layoutX="449.0" layoutY="394.0" mnemonicParsing="false" onAction="#macncheese_nandos_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="macncheese_nandos_value" layoutX="492.0" layoutY="257.0" text="0" visible="false" />
+                  <Button fx:id="macncheese_nandos_minus" layoutX="514.0" layoutY="393.0" mnemonicParsing="false" onAction="#macncheese_nandos_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="richeese_title" layoutX="39.0" layoutY="29.0" text="Richeese" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="hotchicken_richeese_pic" fitHeight="130.0" fitWidth="244.0" layoutX="32.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/richeese2.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="hotchicken_richeese_text" layoutX="283.0" layoutY="111.0" text="hot chicken" visible="false" />
+                  <Label fx:id="hotchicken_richeese_price" layoutX="284.0" layoutY="138.0" text="RM10.00" visible="false" />
+                  <Button fx:id="hotchicken_richeese_plus" layoutX="449.0" layoutY="108.0" mnemonicParsing="false" onAction="#hotchicken_richeese_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="hotchicken_richeese_value" alignment="CENTER_RIGHT" layoutX="486.0" layoutY="111.0" text="0" visible="false" />
+                  <Button fx:id="hotchicken_richeese_minus" layoutX="516.0" layoutY="108.0" mnemonicParsing="false" onAction="#hotchicken_richeese_onclicked_minus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="firechicken_richeese_pic" fitHeight="155.0" fitWidth="319.0" layoutX="31.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/richeeseFire.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="firechicken_richeese_text" layoutX="283.0" layoutY="257.0" text="fire chicken" visible="false" />
+                  <Label fx:id="firechicken_richeese_price" layoutX="284.0" layoutY="278.0" text="RM14.00" visible="false" />
+                  <Button fx:id="firechicken_richeese_plus" layoutX="449.0" layoutY="253.0" mnemonicParsing="false" onAction="#firechicken_richeese_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="firechicken_richeese_value" layoutX="491.0" layoutY="259.0" text="0" visible="false" />
+                  <Button fx:id="firechicken_richeese_minus" layoutX="516.0" layoutY="254.0" mnemonicParsing="false" onAction="#firechicken_richeese_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="bandungais_richeese_pic" fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/bandungIce.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="bandungais_richeese_text" layoutX="285.0" layoutY="388.0" text="bandung ais" visible="false" />
+                  <Label fx:id="bandungais_richeese_price" layoutX="286.0" layoutY="412.0" text="RM2.00" visible="false" />
+                  <Button fx:id="bandungais_richeese_plus" layoutX="449.0" layoutY="392.0" mnemonicParsing="false" onAction="#bandungais_richeese_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="bandungais_richeese_value" layoutX="487.0" layoutY="398.0" text="0" visible="false" />
+                  <Button fx:id="bandungais_richeese_minus" layoutX="514.0" layoutY="392.0" mnemonicParsing="false" onAction="#bandungais_richeese_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="kfry_title" layoutX="43.0" layoutY="29.0" text="k-fry" visible="false">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="honeychicken_kfry_pic" fitHeight="111.0" fitWidth="195.0" layoutX="58.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/kfry.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="honeychicken_kfry_text" layoutX="283.0" layoutY="111.0" text="honey mustard chicken" visible="false" />
+                  <Label fx:id="honeychicken_kfry_price" layoutX="284.0" layoutY="138.0" text="RM13.00" visible="false" />
+                  <Button fx:id="honeychicken_kfry_plus" layoutX="449.0" layoutY="109.0" mnemonicParsing="false" onAction="#honeychicken_kfry_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="honeychicken_kfry_value" alignment="CENTER_RIGHT" layoutX="487.0" layoutY="115.0" text="0" visible="false" />
+                  <Button fx:id="honeychicken_kfry_minus" layoutX="514.0" layoutY="108.0" mnemonicParsing="false" onAction="#honeychicken_kfry_onclicked_minus" prefHeight="24.0" prefWidth="23.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="redchicken_kfry_pic" fitHeight="110.0" fitWidth="150.0" layoutX="46.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/kfry.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="redchicken_kfry_text" layoutX="284.0" layoutY="257.0" text="red chicken" visible="false" />
+                  <Label fx:id="redchicken_kfry_price" layoutX="283.0" layoutY="278.0" text="RM11.50" visible="false" />
+                  <Button fx:id="redchicken_kfry_plus" layoutX="449.0" layoutY="256.0" mnemonicParsing="false" onAction="#redchicken_kfry_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="redchicken_kfry_value" layoutX="491.0" layoutY="257.0" text="0" visible="false" />
+                  <Button fx:id="redchicken_kfry_minus" layoutX="516.0" layoutY="253.0" mnemonicParsing="false" onAction="#redchicken_kfry_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="yellowchicken_kfry_pic" fitHeight="143.0" fitWidth="160.0" layoutX="36.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/Foods/honeymustard_bumbuk.jpeg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="yellowchicken_kfry_text" layoutX="282.0" layoutY="388.0" text="yellow chicken" visible="false" />
+                  <Label fx:id="yellowchicken_kfry_price" layoutX="286.0" layoutY="408.0" text="RM15.00" visible="false" />
+                  <Button fx:id="yellowchicken_kfry_plus" layoutX="449.0" layoutY="393.0" mnemonicParsing="false" onAction="#yellowchicken_kfry_onclicked_plus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="+" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="yellowchicken_kfry_value" layoutX="488.0" layoutY="397.0" text="0" visible="false" />
+                  <Button fx:id="yellowchicken_kfry_minus" layoutX="515.0" layoutY="393.0" mnemonicParsing="false" onAction="#yellowchicken_kfry_onclicked_minus" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 100;" text="-" visible="false">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

@@ -3,8 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -15,81 +17,23 @@
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckoutController">
-   <right>
-      <Pane layoutX="1300.0" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" prefHeight="60.0" prefWidth="302.0" text="CART" textFill="WHITE" underline="true">
-               <font>
-                  <Font name="Berlin Sans FB Demi Bold" size="40.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <effect>
-                  <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
-               </effect>
-            </Label>
-         </children>
-         <effect>
-            <Lighting diffuseConstant="2.0" specularConstant="0.26" specularExponent="12.3" surfaceScale="4.08">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant azimuth="181.65" />
-               </light>
-            </Lighting>
-         </effect></Pane>
-   </right>
-   <top>
-      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="50.0" prefWidth="475.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckoutController">
+   <children>
+      <ImageView fx:id="backgroundDoodle" fitHeight="816.0" fitWidth="1536.0" pickOnBounds="true" preserveRatio="true" />
+      <BorderPane layoutX="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1536.0">
+         <right>
+            <Pane layoutX="1300.0" prefHeight="706.0" prefWidth="508.0" style="-fx-background-color: #FF7653;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="50.0" prefWidth="50.0" stylesheets="@../CSS/Checkout.css" text="&lt;--" textAlignment="CENTER">
+                  <Label alignment="CENTER" layoutX="-2.0" layoutY="-3.0" prefHeight="74.0" prefWidth="507.0" text="CART" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="Gill Sans Ultra Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <ImageView fitHeight="38.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/LOGO-removebg-preview.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="6.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label prefHeight="50.0" prefWidth="178.0" text="LOCKED UP" textFill="WHITE">
-                     <font>
-                        <Font name="Gill Sans Ultra Bold" size="24.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                     <effect>
-                        <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
-                           <color>
-                              <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </Label>
-                  <Label layoutX="65.0" layoutY="10.0" prefHeight="50.0" prefWidth="178.0" text="MUNCHIES" textFill="#ff7653">
-                     <font>
-                        <Font name="Gill Sans Ultra Bold" size="24.0" />
+                        <Font name="Berlin Sans FB Demi Bold" size="56.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -98,86 +42,203 @@
                         <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
                      </effect>
                   </Label>
-               </children>
-            </HBox>
-            <HBox layoutX="700.0" prefHeight="50.0" prefWidth="300.0">
-               <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="303.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
-                     <padding>
-                        <Insets right="5.0" />
-                     </padding>
+                  <Label fx:id="totalPriceLabel" layoutX="12.0" layoutY="589.0" prefHeight="57.0" prefWidth="251.0" text="TOTAL:">
                      <font>
-                        <Font name="Gill Sans MT" size="14.0" />
+                        <Font size="25.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../Images/userDefaultPicture.png" />
-                     </image>
-                  </ImageView>
+                  <ListView fx:id="cartListView" layoutY="98.0" prefHeight="494.0" prefWidth="506.0" />
                </children>
-            </HBox>
-         </children>
-         <effect>
-            <Lighting diffuseConstant="2.0" specularConstant="0.28" specularExponent="12.9" surfaceScale="4.0">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant azimuth="124.17" elevation="35.0" />
-               </light>
-            </Lighting>
-         </effect></Pane>
-   </top>
-   <left>
-      <Pane prefHeight="450.0" prefWidth="362.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="20.0" layoutY="33.0" text="Delivery address:" />
-            <TextArea fx:id="deliveryAddress" layoutX="14.0" layoutY="56.0" prefHeight="150.0" prefWidth="296.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextArea>
-            <ComboBox fx:id="deliveryOptions" layoutX="20.0" layoutY="277.0" prefWidth="150.0" visibleRowCount="3" />
-            <Label layoutX="20.0" layoutY="250.0" text="Delivery options:" />
-            <Button fx:id="saveAddress" layoutX="266.0" layoutY="211.0" mnemonicParsing="false" text="Save">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-         </children>
-      </Pane>
-   </left>
-   <center>
-      <Pane prefHeight="450.0" prefWidth="348.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
-         <children>
-            <RadioButton fx:id="debitCardOption" layoutX="39.0" layoutY="72.0" mnemonicParsing="false" text="Debit card">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <toggleGroup>
-                  <ToggleGroup fx:id="paymentOptions" />
-               </toggleGroup></RadioButton>
-            <RadioButton fx:id="cashOption" layoutX="39.0" layoutY="100.0" mnemonicParsing="false" text="Cash" toggleGroup="$paymentOptions">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor></RadioButton>
-            <Label layoutX="39.0" layoutY="31.0" text="Payment method:" />
-            <TextArea fx:id="additionalRequest" layoutX="21.0" layoutY="204.0" prefHeight="150.0" prefWidth="296.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextArea>
-            <Label layoutX="21.0" layoutY="176.0" text="Additional request:" />
-            <TextField fx:id="debitCardField" layoutX="133.0" layoutY="68.0">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor></TextField>
-            <Button fx:id="placeOrder" layoutX="132.0" layoutY="407.0" mnemonicParsing="false" text="Place Order">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-         </children>
-      </Pane>
-   </center>
-</BorderPane>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.26" specularExponent="12.3" surfaceScale="4.08">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="181.65" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Pane>
+         </right>
+         <top>
+            <Pane prefHeight="110.0" prefWidth="1536.0" style="-fx-background-color: #212121;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="-2.0" prefHeight="110.0" prefWidth="871.0">
+                     <children>
+                        <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#clickBackButton" prefHeight="110.0" prefWidth="110.0" stylesheets="@../CSS/Checkout.css" text="&lt;--" textAlignment="CENTER">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="33.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="118.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/LOGO-removebg-preview.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="110.0" prefWidth="292.0" text="LOCKED UP" textFill="WHITE">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0">
+                                 <color>
+                                    <Color red="1.0" green="0.4627451002597809" blue="0.32549020648002625" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Label>
+                        <Label layoutY="10.0" prefHeight="110.0" prefWidth="273.0" text="MUNCHIES" textFill="#ff7653">
+                           <font>
+                              <Font name="Gill Sans Ultra Bold" size="40.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <effect>
+                              <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0" />
+                           </effect>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="0.28" specularExponent="12.9" surfaceScale="4.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant azimuth="124.17" elevation="35.0" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Pane>
+         </top>
+         <left>
+            <Pane prefHeight="706.0" prefWidth="510.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="19.0" layoutY="33.0" text="Delivery address:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="deliveryAddress" layoutX="14.0" layoutY="68.0" prefHeight="191.0" prefWidth="482.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextArea>
+                  <ComboBox fx:id="deliveryOptions" layoutX="22.0" layoutY="397.0" prefHeight="40.0" prefWidth="200.0" promptText="Choose" visibleRowCount="3" />
+                  <Label layoutX="20.0" layoutY="357.0" text="Delivery options:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="saveAddress" layoutX="410.0" layoutY="274.0" mnemonicParsing="false" text="Save">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="172.0" layoutY="31.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="172.0" layoutY="357.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane prefHeight="450.0" prefWidth="348.0" style="-fx-border-color: #000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton fx:id="debitCardOption" layoutX="39.0" layoutY="90.0" mnemonicParsing="false" text="Debit card">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="paymentOptions" />
+                     </toggleGroup>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="cashOption" layoutX="39.0" layoutY="142.0" mnemonicParsing="false" text="Cash" toggleGroup="$paymentOptions">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </RadioButton>
+                  <Label layoutX="39.0" layoutY="31.0" text="Payment method:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="additionalRequest" layoutX="31.0" layoutY="310.0" prefHeight="220.0" prefWidth="458.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextArea>
+                  <Label layoutX="35.0" layoutY="267.0" text="Additional request:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="debitCardField" disable="true" layoutX="188.0" layoutY="72.0" prefHeight="40.0" prefWidth="279.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="placeOrder" disable="true" layoutX="197.0" layoutY="630.0" mnemonicParsing="false" onAction="#placeOrderClicked" text="Place Order">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="checkConfirmation" layoutX="36.0" layoutY="543.0" mnemonicParsing="false" text="Confirm your information">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </CheckBox>
+                  <Label layoutX="198.0" layoutY="31.0" text="*" textFill="RED">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelInfo" layoutX="38.0" layoutY="589.0" prefHeight="17.0" prefWidth="452.0" text="*Label " textFill="RED" visible="false" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
