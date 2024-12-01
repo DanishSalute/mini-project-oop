@@ -11,7 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -335,7 +338,7 @@ public class MenuSelection {
     // GEMAS
     @FXML
     void GEMAS_SETA_PLUS_Click(ActionEvent event) {
-        addItemToCart("Nasi Ayam Panggang", 7.50, 1);
+        addItemToCart("Nasi Ayam Panggang", 7.90, 1);
         gemas_setA_Quantity++;
         GEMAS_SETA_QUANTITY.setText(String.valueOf(gemas_setA_Quantity));
     }
@@ -343,7 +346,7 @@ public class MenuSelection {
     @FXML
     void GEMAS_SETA_MINUS_Click(ActionEvent event) {
         if (gemas_setA_Quantity > 0) {
-            addItemToCart("Nasi Ayam Panggang", 7.50, -1);
+            addItemToCart("Nasi Ayam Panggang", 7.90, -1);
             gemas_setA_Quantity--;
             GEMAS_SETA_QUANTITY.setText(String.valueOf(gemas_setA_Quantity));
         }
@@ -718,52 +721,75 @@ public class MenuSelection {
 
     @FXML
     void clickBackButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HomePage.fxml"));
-        Parent root = loader.load();
+        Alert confirmExit = new Alert(Alert.AlertType.CONFIRMATION);
 
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show(); 
+        //Center the alert box relative to the parent window
+        confirmExit.initOwner(((Node) event.getSource()).getScene().getWindow());
+
+        // Info texts shown
+        confirmExit.setTitle("Back to main menu");
+        confirmExit.setHeaderText("Are you sure you want to exit the menu");
+        confirmExit.setContentText("Your cart will be cleared once you exit");
+        confirmExit.showAndWait();
+
+        if (confirmExit.getResult() == ButtonType.OK) {
+            CartData.clearCart();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HomePage.fxml"));
+            Parent root = loader.load();
+
+            // Set the new scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
 
     @FXML
     void checkOut_Btn_Click(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CheckoutController.fxml"));
-        Parent root = loader.load();
+        if (CartData.getTotalPrice() != 0) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CheckoutController.fxml"));
+            Parent root = loader.load();
 
-        switch (userChoice) {
-            case 1:
-                CartData.setRBSQuantity(rbs_setA_Quantity, rbs_setB_Quantity, rbs_setC_Quantity);
-                break;
-            case 2:
-                CartData.setKfryQuantity(kfry_setA_Quantity, kfry_setB_Quantity, kfry_setC_Quantity);
-                break;
-            case 3:
-                CartData.setNandosQuantity(nandos_setA_Quantity, nandos_setB_Quantity, nandos_setC_Quantity);
-                break;
-            case 4:
-                CartData.setKfcQuantity(kfc_setA_Quantity, kfc_setB_Quantity, kfc_setC_Quantity);
-                break;
-            case 5:
-                CartData.setBBBQuantity(bbb_setA_Quantity, bbb_setB_Quantity, bbb_setC_Quantity);
-                break;
-            case 6:
-                CartData.setRicheeseQuantity(richeese_setA_Quantity, richeese_setB_Quantity, richeese_setC_Quantity);
-                break;
-            case 7:
-                CartData.setGemasQuantity(gemas_setA_Quantity, gemas_setB_Quantity, gemas_setC_Quantity);
-                break;
-            case 8:
-                CartData.setGepukQuantity(ag_setA_Quantity, ag_setB_Quantity, ag_setC_Quantity);
-                break;
-            default:
-                break;
+            switch (userChoice) {
+                case 1:
+                    CartData.setRBSQuantity(rbs_setA_Quantity, rbs_setB_Quantity, rbs_setC_Quantity);
+                    break;
+                case 2:
+                    CartData.setKfryQuantity(kfry_setA_Quantity, kfry_setB_Quantity, kfry_setC_Quantity);
+                    break;
+                case 3:
+                    CartData.setNandosQuantity(nandos_setA_Quantity, nandos_setB_Quantity, nandos_setC_Quantity);
+                    break;
+                case 4:
+                    CartData.setKfcQuantity(kfc_setA_Quantity, kfc_setB_Quantity, kfc_setC_Quantity);
+                    break;
+                case 5:
+                    CartData.setBBBQuantity(bbb_setA_Quantity, bbb_setB_Quantity, bbb_setC_Quantity);
+                    break;
+                case 6:
+                    CartData.setRicheeseQuantity(richeese_setA_Quantity, richeese_setB_Quantity, richeese_setC_Quantity);
+                    break;
+                case 7:
+                    CartData.setGemasQuantity(gemas_setA_Quantity, gemas_setB_Quantity, gemas_setC_Quantity);
+                    break;
+                case 8:
+                    CartData.setGepukQuantity(ag_setA_Quantity, ag_setB_Quantity, ag_setC_Quantity);
+                    break;
+                default:
+                    break;
+                }
+            // Set the new scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show(); 
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(((Node) event.getSource()).getScene().getWindow());
+            alert.setTitle("Error");
+            alert.setContentText("Your cart is empty!");
+            alert.show();
         }
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show(); 
     }
+
 }

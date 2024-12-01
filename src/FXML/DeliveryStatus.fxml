@@ -46,7 +46,7 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="additionalDetailsLabel" alignment="TOP_LEFT" layoutX="353.0" layoutY="119.0" prefHeight="473.0" prefWidth="310.0" text="Label">
+                  <Label fx:id="additionalDetailsLabel" alignment="TOP_LEFT" layoutX="353.0" layoutY="119.0" prefHeight="473.0" prefWidth="310.0" text="Label" wrapText="true">
                      <font>
                         <Font size="24.0" />
                      </font>
