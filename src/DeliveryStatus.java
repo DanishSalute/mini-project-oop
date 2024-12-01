@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,12 +15,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -32,7 +32,7 @@ public class DeliveryStatus implements Initializable {
     private ImageView backgroundDoodle;
 
     @FXML
-    private Label deliveryStatus, deliveryOption, orderedItemsLabel;
+    private Label deliveryStatus, deliveryOption, orderedItemsLabel, additionalDetailsLabel, totalPriceLabel;
 
     @FXML
     private Circle deliveryStatusImage;
@@ -46,11 +46,26 @@ public class DeliveryStatus implements Initializable {
     @FXML
     private Button collectOrderButton;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    @FXML
+    private ListView<CartItem> cartList;
+
     UserData userData = UserData.getInstance();
     Timeline timeline = new Timeline();
+
+    public void setCartDetails(ObservableList<CartItem> cartItems, double totalPrice, String deliveryOption, String deliveryAddress, String additionalRequest) {
+        cartList.setItems(cartItems);
+        String formattedTotal = String.format("%.2f", totalPrice);
+        totalPriceLabel.setText("Total: RM " + formattedTotal);
+        
+        // Set the delivery option
+        this.deliveryOption.setText(deliveryOption);
+        
+        if (additionalRequest == null || additionalRequest.isEmpty()) {
+            additionalRequest = "No additional request";
+        }
+
+        additionalDetailsLabel.setText("Delivery Address :\n" + deliveryAddress + "\nAdditional Request: \n" + additionalRequest);
+    }
 
     // Set images in circle
     public void images(Circle imageFrame, String imagePath) {
@@ -74,6 +89,7 @@ public class DeliveryStatus implements Initializable {
         homeButton.setPickOnBounds(true);
     }
 
+    @SuppressWarnings("unused")
     private void animateProgressBar() {
         // KeyFrame that animates the progress from the current value to 1 over the remaining time
         KeyFrame keyFrame = new KeyFrame(
@@ -125,5 +141,7 @@ public class DeliveryStatus implements Initializable {
         deliveryStatusImage.setVisible(false);
         deliveryStatus.setText("Have a great meal!");
         
+        UserData.getInstance().userOrdered = false;
+        CartData.clearCart();
     }
 }

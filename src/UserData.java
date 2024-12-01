@@ -8,7 +8,10 @@ public class UserData {
     private int indexOfCurrentUser ;
     public int userChoice;
 
-
+    public String userDeliveryOption;
+    public String userAddress;
+    public String userAdditionalRequest;
+    public boolean userOrdered = false;
     public double storeProgressbar;
 
     // Private constructor for Singleton

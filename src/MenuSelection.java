@@ -1,19 +1,19 @@
 import java.io.IOException;
-
-import javax.swing.Action;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -71,8 +71,6 @@ public class MenuSelection {
     private Label RBS_SETA_QUANTITY, RBS_SETB_QUANTITY, RBS_SETC_QUANTITY;
     @FXML
     private Label RICHEESE_SETA_QUANTITY, RICHEESE_SETB_QUANTITY, RICHEESE_SETC_QUANTITY;
-    @FXML
-    private Label totalPriceLabel;
 
     public int userChoice;
 
@@ -133,49 +131,67 @@ public class MenuSelection {
 
     @FXML
     private ListView<CartItem> cartListView; // ListView to display the cart
-
-    public ObservableList<CartItem> cartItems = FXCollections.observableArrayList(); // Dynamic list for cart
-    public double totalPrice = 0.0;
-
     @FXML
+    private Label totalPriceLabel; // Label to display total price
+
     public void initialize() {
-        cartListView.setItems(cartItems); // Bind ListView to the cart items list
+        // Bind the cartListView directly to the shared CartData's cartItems
+        cartListView.setItems(CartData.getCartItems());
         updateTotalPrice();
+
+        // Debugging: Ensure cartListView correctly reflects shared CartData
+        System.out.println("Cart initialized with items: " + CartData.getCartItems());
     }
 
     private void updateTotalPrice() {
-        totalPrice = cartItems.stream()
+        double totalPrice = CartData.getCartItems().stream()
                 .mapToDouble(item -> item.getPrice() * item.getQuantity())
                 .sum();
+
         String priceFormatted = String.format("%.2f", totalPrice);
         totalPriceLabel.setText("Total: RM" + priceFormatted);
+
+        // Update shared total price in CartData
         CartData.setTotalPrice(totalPrice);
     }
 
     private void addItemToCart(String itemName, double itemPrice, int deltaQuantity) {
+        // Use the shared cartItems directly for all updates
+        ObservableList<CartItem> cartItems = CartData.getCartItems();
+
+        // Debugging: Print the current state of the cart
+        System.out.println("Current cart items before update: " + cartItems);
+
+        // Check if the cart is empty and we are trying to remove an item
+        if (cartItems.isEmpty() && deltaQuantity < 1) {
+            return; // Prevent removing items from an empty cart
+        }
+
+        // Iterate through existing cart items to check if the item already exists
         for (CartItem item : cartItems) {
             if (item.getName().equals(itemName)) {
                 int newQuantity = item.getQuantity() + deltaQuantity;
                 if (newQuantity <= 0) {
                     cartItems.remove(item); // Remove the item if the quantity becomes 0
+                    System.out.println("Removed item: " + itemName);
                 } else {
                     item.setQuantity(newQuantity); // Update the quantity
+                    System.out.println("Updated item: " + itemName + " to quantity: " + newQuantity);
                 }
                 cartListView.refresh(); // Refresh the ListView
-                updateTotalPrice();
+                updateTotalPrice(); // Update the total price
                 return;
             }
         }
 
+        // If the item does not exist and the deltaQuantity is positive, add it to the cart
         if (deltaQuantity > 0) {
-            // Add a new item to the cart if it doesn't already exist
             cartItems.add(new CartItem(itemName, itemPrice, deltaQuantity));
-            updateTotalPrice();
+            System.out.println("Added new item: " + itemName + " with quantity: " + deltaQuantity);
+            updateTotalPrice(); // Update the total price
         }
-
-        CartData.getCartItems().setAll(cartItems); // Update shared cart items
-        updateTotalPrice();
     }
+
 
     // Variables to store quantities for Ayam Gepuk (AG)
     public int ag_setA_Quantity;
@@ -270,7 +286,7 @@ public class MenuSelection {
     // BBB
     @FXML
     void BBB_SETA_PLUS_Click(ActionEvent event) {
-        addItemToCart("Tom Yam Campur", 8.50, 1);
+        addItemToCart("Tom Yam Campur", 8.90, 1);
         bbb_setA_Quantity++;
         BBB_SETA_QUANTITY.setText(String.valueOf(bbb_setA_Quantity));
     }
@@ -278,7 +294,7 @@ public class MenuSelection {
     @FXML
     void BBB_SETA_MINUS_Click(ActionEvent event) {
         if (bbb_setA_Quantity > 0) { // Check if quantity is greater than 0
-            addItemToCart("Tom Yam Campur", 8.50, -1);
+            addItemToCart("Tom Yam Campur", 8.90, -1);
             bbb_setA_Quantity--;
             BBB_SETA_QUANTITY.setText(String.valueOf(bbb_setA_Quantity));
         }
@@ -531,7 +547,7 @@ public class MenuSelection {
 
     @FXML
     void RBS_SETB_PLUS_Click(ActionEvent event) {
-        addItemToCart("Nasi Goreng Ayam", 8.50, 1);
+        addItemToCart("Nasi Goreng Ayam", 8.9, 1);
         rbs_setB_Quantity++;
         RBS_SETB_QUANTITY.setText(String.valueOf(rbs_setB_Quantity));
     }
@@ -539,7 +555,7 @@ public class MenuSelection {
     @FXML
     void RBS_SETB_MINUS_Click(ActionEvent event) {
         if (rbs_setB_Quantity > 0) {
-            addItemToCart("Nasi Goreng Ayam", 8.50, -1);
+            addItemToCart("Nasi Goreng Ayam", 8.90, -1);
             rbs_setB_Quantity--;
             RBS_SETB_QUANTITY.setText(String.valueOf(rbs_setB_Quantity));
         }
@@ -610,6 +626,95 @@ public class MenuSelection {
         }
     }
 
+    public void setRBSQuantity(){
+        rbs_setA_Quantity = CartData.rbs_setA_Quantity;
+        rbs_setB_Quantity = CartData.rbs_setB_Quantity;
+        rbs_setC_Quantity = CartData.rbs_setC_Quantity;
+
+        RBS_SETA_QUANTITY.setText(String.valueOf(rbs_setA_Quantity));
+        RBS_SETB_QUANTITY.setText(String.valueOf(rbs_setB_Quantity));
+        RBS_SETC_QUANTITY.setText(String.valueOf(rbs_setC_Quantity));
+    }
+
+    public void setAGQuantity() {
+        ag_setA_Quantity = CartData.ag_setA_Quantity;
+        ag_setB_Quantity = CartData.ag_setB_Quantity;
+        ag_setC_Quantity = CartData.ag_setC_Quantity;
+    
+        AG_SETA_QUANTITY.setText(String.valueOf(ag_setA_Quantity));
+        AG_SETB_QUANTITY.setText(String.valueOf(ag_setB_Quantity));
+        AG_SETC_QUANTITY.setText(String.valueOf(ag_setC_Quantity));
+    }
+    
+    public void setBBBQuantity() {
+        bbb_setA_Quantity = CartData.bbb_setA_Quantity;
+        bbb_setB_Quantity = CartData.bbb_setB_Quantity;
+        bbb_setC_Quantity = CartData.bbb_setC_Quantity;
+    
+        BBB_SETA_QUANTITY.setText(String.valueOf(bbb_setA_Quantity));
+        BBB_SETB_QUANTITY.setText(String.valueOf(bbb_setB_Quantity));
+        BBB_SETC_QUANTITY.setText(String.valueOf(bbb_setC_Quantity));
+    }
+    
+    public void setGemasQuantity() {
+        gemas_setA_Quantity = CartData.gemas_setA_Quantity;
+        gemas_setB_Quantity = CartData.gemas_setB_Quantity;
+        gemas_setC_Quantity = CartData.gemas_setC_Quantity;
+    
+        GEMAS_SETA_QUANTITY.setText(String.valueOf(gemas_setA_Quantity));
+        GEMAS_SETB_QUANTITY.setText(String.valueOf(gemas_setB_Quantity));
+        GEMAS_SETC_QUANTITY.setText(String.valueOf(gemas_setC_Quantity));
+    }
+    
+    public void setKFCQuantity() {
+        kfc_setA_Quantity = CartData.kfc_setA_Quantity;
+        kfc_setB_Quantity = CartData.kfc_setB_Quantity;
+        kfc_setC_Quantity = CartData.kfc_setC_Quantity;
+    
+        KFC_SETA_QUANTITY.setText(String.valueOf(kfc_setA_Quantity));
+        KFC_SETB_QUANTITY.setText(String.valueOf(kfc_setB_Quantity));
+        KFC_SETC_QUANTITY.setText(String.valueOf(kfc_setC_Quantity));
+    }
+    
+    public void setKFRYQuantity() {
+        kfry_setA_Quantity = CartData.kfry_setA_Quantity;
+        kfry_setB_Quantity = CartData.kfry_setB_Quantity;
+        kfry_setC_Quantity = CartData.kfry_setC_Quantity;
+    
+        KFRY_SETA_QUANTITY.setText(String.valueOf(kfry_setA_Quantity));
+        KFRY_SETB_QUANTITY.setText(String.valueOf(kfry_setB_Quantity));
+        KFRY_SETC_QUANTITY.setText(String.valueOf(kfry_setC_Quantity));
+    }
+    
+    public void setNandosQuantity() {
+        nandos_setA_Quantity = CartData.nandos_setA_Quantity;
+        nandos_setB_Quantity = CartData.nandos_setB_Quantity;
+        nandos_setC_Quantity = CartData.nandos_setC_Quantity;
+    
+        NANDOS_SETA_QUANTITY.setText(String.valueOf(nandos_setA_Quantity));
+        NANDOS_SETB_QUANTITY.setText(String.valueOf(nandos_setB_Quantity));
+        NANDOS_SETC_QUANTITY.setText(String.valueOf(nandos_setC_Quantity));
+    }
+    
+    public void setRicheeseQuantity() {
+        richeese_setA_Quantity = CartData.richeese_setA_Quantity;
+        richeese_setB_Quantity = CartData.richeese_setB_Quantity;
+        richeese_setC_Quantity = CartData.richeese_setC_Quantity;
+    
+        RICHEESE_SETA_QUANTITY.setText(String.valueOf(richeese_setA_Quantity));
+        RICHEESE_SETB_QUANTITY.setText(String.valueOf(richeese_setB_Quantity));
+        RICHEESE_SETC_QUANTITY.setText(String.valueOf(richeese_setC_Quantity));
+    }
+    
+    public void setGepukQuantity() {
+        ag_setA_Quantity = CartData.ag_setA_Quantity;
+        ag_setB_Quantity = CartData.ag_setB_Quantity;
+        ag_setC_Quantity = CartData.ag_setC_Quantity;
+    
+        AG_SETA_QUANTITY.setText(String.valueOf(ag_setA_Quantity));
+        AG_SETB_QUANTITY.setText(String.valueOf(ag_setB_Quantity));
+        AG_SETC_QUANTITY.setText(String.valueOf(ag_setC_Quantity));
+    }
 
     @FXML
     void clickBackButton(ActionEvent event) throws IOException {
@@ -627,10 +732,38 @@ public class MenuSelection {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CheckoutController.fxml"));
         Parent root = loader.load();
 
+        switch (userChoice) {
+            case 1:
+                CartData.setRBSQuantity(rbs_setA_Quantity, rbs_setB_Quantity, rbs_setC_Quantity);
+                break;
+            case 2:
+                CartData.setKfryQuantity(kfry_setA_Quantity, kfry_setB_Quantity, kfry_setC_Quantity);
+                break;
+            case 3:
+                CartData.setNandosQuantity(nandos_setA_Quantity, nandos_setB_Quantity, nandos_setC_Quantity);
+                break;
+            case 4:
+                CartData.setKfcQuantity(kfc_setA_Quantity, kfc_setB_Quantity, kfc_setC_Quantity);
+                break;
+            case 5:
+                CartData.setBBBQuantity(bbb_setA_Quantity, bbb_setB_Quantity, bbb_setC_Quantity);
+                break;
+            case 6:
+                CartData.setRicheeseQuantity(richeese_setA_Quantity, richeese_setB_Quantity, richeese_setC_Quantity);
+                break;
+            case 7:
+                CartData.setGemasQuantity(gemas_setA_Quantity, gemas_setB_Quantity, gemas_setC_Quantity);
+                break;
+            case 8:
+                CartData.setGepukQuantity(ag_setA_Quantity, ag_setB_Quantity, ag_setC_Quantity);
+                break;
+            default:
+                break;
+        }
+
         // Set the new scene
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show(); 
-
     }
 }

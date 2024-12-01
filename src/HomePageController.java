@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 import javafx.animation.Interpolator;
 import javafx.animation.ScaleTransition;
 import javafx.animation.StrokeTransition;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -43,6 +41,9 @@ public class HomePageController implements Initializable {
 
     @FXML
     private ImageView backgroundDoodle;
+
+    @FXML
+    public Button receiptButton;
 
 
     // Variables for switching scene
@@ -101,6 +102,12 @@ public class HomePageController implements Initializable {
     
             String currentUsername = userData.getRegisteredUsername();
             displayUsername.setText(currentUsername);
+
+            if (UserData.getInstance().userOrdered == true) {
+                receiptButton.setDisable(false);
+            } else if (UserData.getInstance().userOrdered == false) {
+                receiptButton.setDisable(true);
+            }
         }
     
 
@@ -282,272 +289,145 @@ public class HomePageController implements Initializable {
         }
     }
 
-
-    // User selecting restaurants of choice
-
+    private boolean checkOrdered() throws IOException {
+        // Check if the user has ordered any food
+        if (UserData.getInstance().userOrdered) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Order Status");
+            alert.setHeaderText("You have ordered food");
+            alert.setContentText("Please wait for the food you ordered");
+            alert.showAndWait(); // Show the alert and wait for it to be closed
+            return true; // Return true if the user has ordered
+        }
+        return false; // Return false if the user has not ordered
+    }
+    
     @FXML
     void bbbImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 5; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show(); 
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 5);
     }
-
+    
     @FXML
     void bbbLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 5; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();   
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 5);
     }
-
+    
     @FXML
     void gemasImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 7; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();   
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 7);
     }
-
+    
     @FXML
     void gemasLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 7; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();    
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 7);
     }
-
+    
     @FXML
     void gepukImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 8; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 8);
     }
-
+    
     @FXML
     void gepukLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 8; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 8);
     }
-
+    
     @FXML
     void kfcImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 4; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 4);
     }
-
+    
     @FXML
     void kfcLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 4; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 4);
     }
-
+    
     @FXML
     void kfryImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 2; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();    
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 2);
     }
-
+    
     @FXML
     void kfryLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 2; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();   
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 2);
     }
-
+    
     @FXML
     void nandosImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 3; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show(); 
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 3);
     }
-
+    
     @FXML
     void nandosLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 3; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();   
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 3);
     }
-
+    
     @FXML
     void rbsImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 1; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show(); 
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 1);
     }
-
+    
     @FXML
     void rbsLabel_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 1; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 1);
     }
-
+    
     @FXML
     void richeeseImage_Clicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
-        Parent root = loader.load();
-
-        // Get the controller from the loader
-        MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 6; // Set the user choice in the actual controller instance
-        menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
-        // Set the new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();  
-        
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 6);
     }
-
+    
     @FXML
     void richeeseLabel_Clicked(MouseEvent event) throws IOException {
+        if (checkOrdered()) return; // Check if the user has ordered food
+        navigateToMenuSelection(event, 6);
+    }
+    
+    // Helper method to navigate to MenuSelection
+    private void navigateToMenuSelection(MouseEvent event, int userChoice) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Menu.fxml"));
         Parent root = loader.load();
-
+    
         // Get the controller from the loader
         MenuSelection menuSelection = loader.getController();
-        menuSelection.userChoice = 6; // Set the user choice in the actual controller instance
+        menuSelection.userChoice = userChoice; // Set the user choice in the actual controller instance
+        UserData.getInstance().userChoice = menuSelection.userChoice;
         menuSelection.setUserChoice(); // Call the method to apply visibility changes
-
+    
         // Set the new scene
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
     
+    @FXML
+    void receiptButton_Click(ActionEvent event) throws IOException{
+        // Load the next scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DeliveryStatus.fxml"));
+        Parent root = loader.load();
+
+        // Get the controller from the loader
+        DeliveryStatus deliveryStatus = loader.getController();
+        // Pass the cart items, total price, delivery option, address, and additional request
+        deliveryStatus.setCartDetails(CartData.getCartItems(), CartData.getTotalPrice(), UserData.getInstance().userDeliveryOption, UserData.getInstance().userAddress, UserData.getInstance().userAdditionalRequest);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

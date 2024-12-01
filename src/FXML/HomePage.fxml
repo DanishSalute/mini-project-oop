@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Light.Distant?>
@@ -99,7 +100,7 @@
                   </HBox>
                   <HBox layoutX="899.0" prefHeight="108.0" prefWidth="638.0">
                      <children>
-                        <Label fx:id="displayUsername" alignment="CENTER_RIGHT" prefHeight="113.0" prefWidth="553.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
+                        <Label fx:id="displayUsername" alignment="CENTER_RIGHT" prefHeight="108.0" prefWidth="549.0" text="Username" textAlignment="RIGHT" textFill="#eaeaea">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
@@ -369,6 +370,21 @@
                         <DropShadow height="0.0" offsetX="-2.0" offsetY="2.0" radius="0.0" width="0.0" />
                      </effect>
                   </Label>
+                  <Button fx:id="receiptButton" alignment="CENTER" disable="true" mnemonicParsing="false" onAction="#receiptButton_Click" prefHeight="78.0" prefWidth="78.0" GridPane.columnIndex="3">
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Images/bill.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets left="400.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </GridPane>
          </center>
